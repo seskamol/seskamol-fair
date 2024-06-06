@@ -63,7 +63,7 @@ export function MintNFT({
 
     const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
-    const tokenId: bigint = BigInt(2);
+    const tokenId: bigint = BigInt(1);
     //const quantity: number = 1;
     //const comment: string = "wagmitestcommentglb";
     const mintReferral: Address = "0x99e63EA86766ed7526B994AAb727FE5cf0178D40";
