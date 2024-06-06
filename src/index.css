@@ -1,0 +1,24 @@
+:root {
+  background-color: #000000;
+  color: rgba(0, 0, 0, 0.57);
+  color-scheme: dark;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
