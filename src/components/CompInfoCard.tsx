@@ -89,7 +89,7 @@ function InfoCard() {
                                             ml: 1.5,
                                         }}
                                     >
-                                        <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
+                                        <Button sx={buttonStyle} href="https://zora.co/collect/base:0x743a00292526d31345ee933cc8e91ddf8ff3f047/1" target="_blank" size="small" >
                                             [ ZORA ]
                                         </Button>
 
