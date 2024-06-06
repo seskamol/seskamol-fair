@@ -8,15 +8,15 @@ import { MainContext, useContext } from '../context/MainContext';
 
 import { getTokens } from './FuncTokens.ts';
 
+
+const modelPath = getTokens();
+
+
 function CompGlb() {
 
     const ref = useRef();
-
-    const { tokenData } = getTokens();
     // @ts-ignore
-    const { nodes, materials } = useGLTF(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/"))
-
-    //ipfs://bafybeifqirnitmyo4r35etq2mkbrhbbxqdmioiobwzrtl6llyddsiabb7y
+    const { nodes, materials } = useGLTF(modelPath.tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/"))
 
     // @ts-ignore
     useFrame(() => (ref.current.rotation.y += 0.0003));
@@ -45,7 +45,7 @@ function CompGlb() {
         </group>
     );
 }
-
-//useGLTF.preload(glb)
+// @ts-ignore
+useGLTF.preload(modelPath.tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/"))
 
 export default CompGlb

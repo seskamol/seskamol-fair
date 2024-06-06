@@ -28,9 +28,9 @@ const tokenData = await fetchTokens(zdk, ['0x743a00292526d31345ee933cc8e91ddf8ff
 
 export function getTokens() {
 
-    //console.log(data)
-    //console.log(data.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
-    //const modelPath = data.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");
+    //console.log(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
+    //const modelPath = tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");
+    //console.log(modelPath)
 
     return (
         { tokenData }
