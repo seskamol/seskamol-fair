@@ -9,8 +9,8 @@ import {
 import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
 
 const networkInfo = {
-    network: ZDKNetwork.Ethereum,
-    chain: ZDKChain.Sepolia,
+    network: ZDKNetwork.Base,
+    chain: ZDKChain.BaseMainnet,
 }
 
 const API_ENDPOINT = "https://api.zora.co/graphql";
@@ -31,7 +31,7 @@ async function fetchTokens(zdk: ZDK, collectionAddresses: string[]) {
 }
 
 // @ts-ignore
-const data = await fetchTokens(zdk, ['0x5061bfd189f4e67a53d5af3656f20791cdeaf574']);
+const data = await fetchTokens(zdk, ['0x743a00292526d31345ee933cc8e91ddf8ff3f047']);
 
 function CompTokens() {
 
