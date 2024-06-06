@@ -136,7 +136,7 @@ function CompArguments() {
 
                     <TextField onChange={(e) => { setComment(e.target.value) }} fullWidth name="commentfield" label="comment" id="comment" size="small" />
 
-                    <Button onClick={submit} sx={mintButtonStyle} href="" size="small" >
+                    <Button onClick={submit} sx={mintButtonStyle} size="small" >
                         [ mint ]
                     </Button>
 

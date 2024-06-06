@@ -1,4 +1,4 @@
-import * as React from 'react'
+//
 import { useEffect, useMemo, useState } from "react";
 
 import { config } from '../wagmi';
@@ -94,22 +94,9 @@ export function MintNFT({
     // @ts-ignore
     const { data } = useSimulateContract(params);
 
-    console.log("params>>>>>>>>>: ", params);
+    async function submit() { writeContract(data!.request) }
 
-    async function submit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-
-        writeContract(data!.request);
-
-        console.log("data>>>>>>>>>: ", data);
-        console.log("data!.request>>>>>>>>>: ", data!.request);
-
-    }
-
-    const { isLoading: isConfirming, isSuccess: isConfirmed } =
-        useWaitForTransactionReceipt({
-            hash,
-        })
+    const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
     return (
         { isPending, isConfirming, isConfirmed, error, submit }
