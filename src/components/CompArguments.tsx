@@ -76,8 +76,6 @@ function CompArguments() {
 
     const [comment, setComment] = React.useState<string>("");
 
-    console.log(comment)
-
     const [value, setValue] = React.useState(1);
     // @ts-ignore
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
