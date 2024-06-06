@@ -14,7 +14,7 @@ import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
 import CompInfoCard from './components/CompInfoCard'
-import CompThree from './components/CompThree'
+//import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
 
 const appBoxStyle = {
@@ -54,7 +54,7 @@ function App() {
             <Button onClick={theme.toggleColorMode} size="small" sx={{ mt: 0.5 }}> {theme.mode} </Button>
 
             <CompConnect />
-            <CompThree />
+            {/* <CompThree /> */}
             <CompInfoCard />
             <CompLinks />
 
