@@ -61,7 +61,7 @@ export function MintNFT({
         writeContract
     } = useWriteContract()
 
-    const erc1155Address: Address = "0x43ca10c87627cd4dc831b270f7cb986dbe3bcfe2";
+    const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
     const tokenId: bigint = BigInt(2);
     //const quantity: number = 1;
