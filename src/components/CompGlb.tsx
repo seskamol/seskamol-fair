@@ -20,9 +20,8 @@ function CompGlb() {
     useFrame(() => (ref.current.rotation.y += 0.0003));
 
     const data = useContext(MainContext);
-
+    // @ts-ignore
     const handleClick: any = (event: React.MouseEvent<HTMLElement>) => {
-        data?.setAnchorEl(event.currentTarget);
         data?.setOpen((previousOpen: any) => !previousOpen);
     };
 
