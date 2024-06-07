@@ -69,13 +69,13 @@ function InfoCard() {
                     <Box component={"div"} sx={cardBoxStyle}>
                         <Box component={"div"} sx={cardBoxStyle}>
                             <Card variant="outlined" sx={{ p: 4, pr: 5, maxWidth: '100%', bgcolor: 'rgb(0,0,0,1)' }}>
-
                                 <CardMedia
                                     component="img"
                                     width="1000vw"
                                     height="1000vh"
                                     image={cardPNG}
                                 />
+
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">
                                         8902 7B2F C86A ACDB 52B1 A06F C5C0 992A
@@ -105,10 +105,7 @@ function InfoCard() {
                                     <Button sx={buttonStyle} onClick={handleClose} size="small" >
                                         [ exit ]
                                     </Button>
-
-
                                 </Box>
-
                             </Card>
                         </Box>
                     </Box>
