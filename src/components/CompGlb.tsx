@@ -18,7 +18,7 @@ function CompGlb() {
     const { nodes, materials } = useGLTF(gltf)
 
     // @ts-ignore
-    useFrame(() => (ref.current.rotation.y += 0.0003));
+    useFrame(() => (ref.current.rotation.y += 0.00017));
 
     const data = useContext(MainContext);
 

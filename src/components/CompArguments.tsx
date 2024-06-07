@@ -84,7 +84,7 @@ function CompArguments() {
 
     const { isPending, isConfirmed, submit } = MintNFT({ quantity: value, comment });
 
-    //console.log(isPending, isConfirming, isConfirmed, error,)
+    //console.log(isPending, isConfirming, isConfirmed, error)
 
     return (
         <Box
@@ -118,7 +118,7 @@ function CompArguments() {
                             quantity: {value}
                         </Typography>
                         <Slider
-                            sx={{ width: '650%', pb: 1 }}
+                            sx={{ width: '370%', pb: 2 }}
                             aria-label="Small steps"
                             size="small"
                             defaultValue={1}

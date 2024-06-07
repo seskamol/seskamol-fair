@@ -57,15 +57,20 @@ function CompConnect() {
                 {/* <Typography sx={uTypStyle}>Connect</Typography> */}
                 <Box sx={cBoxStyle} component={'div'}>
                     {connectors.map((connector) => (
-                        <Button
-                            size="small"
-                            key={connector.uid}
-                            onClick={() => connect({ connector })}
-                            type="button"
-                        >
-                            {connector.name}
-                        </Button>
+                        <>
+                            <Button
+                                size="small"
+                                key={connector.uid}
+                                onClick={() => connect({ connector })}
+                                type="button"
+                                variant="outlined"
+                                sx={{ pl: 1.6, mr: 0.5 }}
+                            >
+                                {connector.name}
+                            </Button>
+                        </>
                     ))}
+
                 </Box>
 
                 <CompSwitchChain />
