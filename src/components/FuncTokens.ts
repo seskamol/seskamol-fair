@@ -23,7 +23,6 @@ async function fetchTokens(zdk: ZDK, collectionAddresses: string[]) {
     });
 }
 
-// @ts-ignore
 const tokenData = await fetchTokens(zdk, ['0x743a00292526d31345ee933cc8e91ddf8ff3f047']);
 
 export function getTokens() {

@@ -5,7 +5,6 @@ import {
 } from '@mui/material';
 
 const lBoxStyle = {
-    //position: 'relative',
     width: '100%',
 }
 
@@ -37,7 +36,6 @@ function CompLinks() {
             style={lBoxStyle}
             sx={lBoxSx}
         >
-
             <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
                 https://zora.co/seskamol
             </Button>
