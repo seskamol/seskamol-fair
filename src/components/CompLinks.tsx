@@ -4,27 +4,39 @@ import {
     Button,
 } from '@mui/material';
 
-const linkBoxStyle = {
+const lBoxStyle = {
+    //position: 'relative',
+    width: '100%',
+}
+
+const lBoxSx = {
     display: 'flex',
     flexDirection: 'column',
     alignSelf: 'center',
     justifyContent: 'center',
-    width: '100%',
+    //width: '100%',
     border: 1,
+    bgcolor: 'transparent',
     borderColor: "secondary.light",
     p: 1,
-    mt: 1
+    pt: 0.5,
+    mt: 1,
 }
 
 const buttonStyle = {
     display: 'flex',
     justifyContent: 'start',
-    width: '100%'
+    //width: '100%'
 }
 
 function CompLinks() {
     return (
-        <Box component={"div"} sx={linkBoxStyle}>
+        <Box
+            border={1}
+            component={"div"}
+            style={lBoxStyle}
+            sx={lBoxSx}
+        >
 
             <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
                 https://zora.co/seskamol

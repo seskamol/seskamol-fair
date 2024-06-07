@@ -109,8 +109,7 @@ function CompArguments() {
                 <AccordionDetails sx={accordionDetailsStyle}>
 
                     <Typography sx={uTypStyle} variant="subtitle1" color="rgb(255,255,255,0.6)">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget...
+                        ERC-1155 Zora Contract on Base Mainnet...
                     </Typography>
 
 
@@ -119,7 +118,7 @@ function CompArguments() {
                             quantity: {value}
                         </Typography>
                         <Slider
-                            sx={{ width: '800%', pb: 2 }}
+                            sx={{ width: '650%', pb: 1 }}
                             aria-label="Small steps"
                             size="small"
                             defaultValue={1}

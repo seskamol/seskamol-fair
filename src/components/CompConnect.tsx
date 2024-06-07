@@ -1,21 +1,32 @@
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 import { Button, Box, Typography } from '@mui/material';
-import { mBoxStyle, cBoxStyle } from '../theme/Sx'
+import { cBoxStyle } from '../theme/Sx'
 
 import CompSwitchChain from './CompSwitchChain'
 
+export const mBoxStyle = {
+    border: 1,
+    bgcolor: "transparent",
+    borderColor: "secondary.light",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'top',
+    mb: 1, mt: 1, pt: 1,
+    pl: 1, pr: 1,
+}
+
 export const uTypStyle = {
     border: 1,
-    bgcolor: "background.default",
+    bgcolor: "transparent",
     borderColor: "secondary.light",
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'top',
     mb: 1,
-    p: 0.5,
-    pl: 1.0,
+    p: 1, pl: 1.3,
 }
 
 function CompConnect() {
@@ -24,10 +35,8 @@ function CompConnect() {
     const { disconnect } = useDisconnect()
 
     return (
-        <Box sx={mBoxStyle} component={'div'} /* style={{ position: 'fixed'}} */>
+        <Box component={'div'} sx={mBoxStyle}>
             <Box component={'div'}>
-                {/* <Typography>{JSON.stringify(account.connector?.icon)}</Typography> */}
-
                 <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
                     Status: {account.status}
                     <br />

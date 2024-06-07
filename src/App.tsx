@@ -14,19 +14,39 @@ import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
 import CompInfoCard from './components/CompInfoCard'
-//import CompThree from './components/CompThree'
+import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
 
-const appBoxStyle = {
+/////////////////////////////
+const aBoxStyle = {
+  padding: '7px',
+  width: "100vw",
+  height: "100%"
+}
+
+const aBoxSx = {
+  border: 1,
+  borderColor: "secondary.light"
+}
+///////////////////////////////////////////
+
+//const cBoxStyle = {
+//  //width: '100vw',
+//  //height: '100%',
+//}
+
+const cBoxSx = {
   border: 1,
   bgcolor: "background.default",
   borderColor: "secondary.light",
-  width: '100%',
-  height: '100%',
-  display: 'flex',
+
+  display: 'grid',
   flexDirection: 'column',
-  justifyContent: 'center',
-  p: 2,
+  alignItems: 'space-between',
+
+  flexGrow: 1,
+  justifyContent: 'stretch',
+  p: '7px',
 }
 
 function App() {
@@ -47,15 +67,22 @@ function App() {
         <ThemeProvider theme={theme.theme}>
           <CssBaseline />
           <Box
-            sx={appBoxStyle}
             component={"div"}
-            style={{ width: "100vw", height: "100vh" }}
+            style={aBoxStyle}
+            sx={aBoxSx}
           >
-            <Button onClick={theme.toggleColorMode} size="small" sx={{ mt: 0.5 }}> {theme.mode} </Button>
+            <Box
+              component={"div"}
+              //style={cBoxStyle}
+              sx={cBoxSx}
+            >
+              <Button onClick={theme.toggleColorMode} size="small" sx={{ border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
 
-            <CompConnect />
-            {/* <CompThree /> */}
-            <CompInfoCard />
+              <CompConnect />
+              <CompThree />
+              <CompInfoCard />
+
+            </Box>
             <CompLinks />
 
           </Box>

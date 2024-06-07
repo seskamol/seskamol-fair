@@ -5,12 +5,10 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF, Html } from '@react-three/drei'
 //
 import { MainContext, useContext } from '../context/MainContext';
-
+//
 import { getTokens } from './FuncTokens.ts';
 
-
 const modelPath = getTokens();
-
 
 function CompGlb() {
 
