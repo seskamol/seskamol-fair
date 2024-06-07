@@ -30,7 +30,7 @@ const useMintClient = () => {
 
     const { chain } = useAccount();
 
-    console.log("chain : ", chain);
+    //console.log("chain : ", chain);
 
     const mintClient = useMemo(
         () => chain && createMintClient({ chain }),

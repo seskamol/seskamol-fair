@@ -16,14 +16,35 @@ import {
 import cardPNG from '../assets/bakeCardS0.gif'
 
 const cardBoxStyle = {
-    display: 'flex',
+
     //flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100000vw',
+    height: '10000vh',
+
+    //position: 'relative' as 'relative',
+    //top: '50%',
+    //left: '50%',
+    //transform: 'translate(-50%, -50%)',
+    //width: 400,
+    //bgcolor: 'transparent',
+    //border: '0vw solid rgb(0,0,0,0)',
+    //boxShadow: 100,
+    //p: 4,
+    alignItems: 'center',
+
+}
+
+const cardBoxSx = {
+    display: 'flex',
     alignSelf: 'center',
-    //justifyContent: 'center',
-    //width: '100%',
     border: 1,
     borderColor: "secondary.light",
     p: 1,
+    width: '1000vw',
+    height: '1000vw',
+
+
 }
 
 const buttonStyle = {
@@ -65,8 +86,8 @@ function InfoCard() {
                 }}
             >
                 <Fade in={data?.opened}>
-                    <Box component={"div"} sx={cardBoxStyle}>
-                        <Box component={"div"} sx={cardBoxStyle}>
+                    <Box component={"div"} sx={cardBoxSx} style={cardBoxStyle}>
+                        <Box component={"div"} sx={cardBoxSx} style={cardBoxStyle}>
                             <Card variant="outlined" sx={{ p: 4, pr: 5, maxWidth: '100%', bgcolor: 'rgb(0,0,0,1)' }}>
                                 <CardMedia
                                     component="img"
