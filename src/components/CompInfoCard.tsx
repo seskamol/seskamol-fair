@@ -13,7 +13,7 @@ import {
     CardContent,
 } from '@mui/material';
 
-import cardPNG from '../assets/bakeCardS.0.gif'
+import cardPNG from '../assets/bakeCardS0.gif'
 
 const cardBoxStyle = {
     display: 'flex',
