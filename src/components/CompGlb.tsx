@@ -6,15 +6,16 @@ import { useGLTF, Html } from '@react-three/drei'
 
 import { MainContext, useContext } from '../context/MainContext';
 
-import { getTokens } from './FuncTokens.ts';
-
-const modelPath = getTokens();
+//import { getTokens } from './FuncTokens.ts';
+//const modelPath = getTokens();
+//modelPath.tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")
+const gltf = "https://magic.decentralized-content.com/ipfs/bafybeifqirnitmyo4r35etq2mkbrhbbxqdmioiobwzrtl6llyddsiabb7y"
 
 function CompGlb() {
 
     const ref = useRef();
     // @ts-ignore
-    const { nodes, materials } = useGLTF(modelPath.tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/"))
+    const { nodes, materials } = useGLTF(gltf)
 
     // @ts-ignore
     useFrame(() => (ref.current.rotation.y += 0.0003));
@@ -43,7 +44,7 @@ function CompGlb() {
         </group>
     );
 }
-// @ts-ignore
-useGLTF.preload(modelPath.tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/"))
+
+useGLTF.preload(gltf)
 
 export default CompGlb
