@@ -1,6 +1,6 @@
 //
 import { MainContext, useContext } from '../context/MainContext';
-//
+
 import {
     //Backdrop,
     Box,
@@ -12,7 +12,7 @@ import {
     CardMedia,
     CardContent,
 } from '@mui/material';
-//
+
 import cardPNG from '../assets/bakeCardS.0.gif'
 
 const cardBoxStyle = {
@@ -44,7 +44,6 @@ import CompArguments from './CompArguments'
 function InfoCard() {
 
     const data = useContext(MainContext);
-
     const handleClose = () => data?.setOpen(false);
 
     return (

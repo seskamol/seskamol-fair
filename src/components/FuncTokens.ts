@@ -1,13 +1,13 @@
 //
 import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
-//
+
 const networkInfo = {
     network: ZDKNetwork.Base,
     chain: ZDKChain.BaseMainnet,
 }
-//
+
 const API_ENDPOINT = "https://api.zora.co/graphql";
-//
+
 const args = {
     endPoint: API_ENDPOINT,
     networks: [networkInfo],
@@ -30,7 +30,6 @@ export function getTokens() {
     //console.log(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
     //const modelPath = tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");
     //console.log(modelPath)
-
     return (
         { tokenData }
     )

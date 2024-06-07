@@ -7,9 +7,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
-//
+
 import CompSnacks from './CompSnacks'
-//
+
 import { MintNFT } from './FuncMint';
 
 const argumentsBoxStyle = {
@@ -128,7 +128,6 @@ function CompArguments() {
                             min={1}
                             max={50}
                         />
-
                     </Box>
 
                     <TextField onChange={(e) => { setComment(e.target.value) }} fullWidth name="commentfield" label="comment" id="comment" size="small" />
@@ -145,11 +144,9 @@ function CompArguments() {
                     ''
                 )}
 
-
             </Accordion>
 
             <CompSnacks confirmed={isConfirmed} />
-
         </Box>
     );
 }

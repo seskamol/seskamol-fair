@@ -40,8 +40,6 @@ const useMintClient = () => {
     return mintClient;
 };
 
-////////////////////////////////////////////////////////
-
 export function MintNFT({
     quantity,
     comment,

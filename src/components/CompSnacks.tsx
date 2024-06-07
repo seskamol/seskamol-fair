@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-//import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
@@ -17,7 +16,6 @@ export default function CustomizedSnackbars(props: any) {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
 
