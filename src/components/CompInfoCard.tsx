@@ -13,7 +13,7 @@ import {
     CardContent,
 } from '@mui/material';
 
-import cardPNG from '../assets/bakeCardS0.gif'
+const cardPNG = 'https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeicjbxn2hxbiunvmes7hl6jtrovrmsb7wwiyujdutwez7b7yc6sh4q&amp;w=1920&amp;q=75'
 
 const cardBoxStyle = {
 

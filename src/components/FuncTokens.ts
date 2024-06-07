@@ -26,10 +26,9 @@ async function fetchTokens(zdk: ZDK, collectionAddresses: string[]) {
 const tokenData = await fetchTokens(zdk, ['0x743a00292526d31345ee933cc8e91ddf8ff3f047']);
 
 export function getTokens() {
-
     //console.log(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
     //const modelPath = tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");
-    //console.log(modelPath)
+    //console.log(tokenData)
     return (
         { tokenData }
     )
