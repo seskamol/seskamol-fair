@@ -13,8 +13,8 @@ import {
 import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
-import CompInfoCard from './components/CompInfoCard'
-import CompThree from './components/CompThree'
+//import CompInfoCard from './components/CompInfoCard'
+//import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
 
 /////////////////////////////
@@ -52,11 +52,9 @@ const cBoxSx = {
 function App() {
 
   const [opened, setOpen] = useState<boolean>(false);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const data = {
     opened, setOpen,
-    anchorEl, setAnchorEl
   }
 
   const theme = ColorMode();
@@ -80,7 +78,7 @@ function App() {
 
               <CompConnect />
               {/* <CompThree /> */}
-              <CompInfoCard />
+              {/* <CompInfoCard /> */}
 
             </Box>
             <CompLinks />
