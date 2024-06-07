@@ -13,8 +13,8 @@ import {
 import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
-//import CompInfoCard from './components/CompInfoCard'
-//import CompThree from './components/CompThree'
+import CompInfoCard from './components/CompInfoCard'
+import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
 
 /////////////////////////////
@@ -77,8 +77,8 @@ function App() {
               <Button onClick={theme.toggleColorMode} size="small" sx={{ border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
 
               <CompConnect />
-              {/* <CompThree />
-              <CompInfoCard /> */}
+              <CompThree />
+              <CompInfoCard />
 
             </Box>
             <CompLinks />
