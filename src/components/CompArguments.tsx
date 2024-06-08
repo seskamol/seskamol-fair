@@ -90,30 +90,30 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
 
     const { account, connectors, connect } = FuncConnect()
 
-    //Base Sepholia: 84532
+    const baseChainId: number = 8453
+
+    //Base Mainnet: 8453
     //Zora Mainnet: 7777777
 
+    //console.log(typeof (account?.chain?.id))
+    //console.log(account?.chain)
+    //console.log(account)
 
-
-    console.log(account?.chain?.Id)
-    console.log(account?.chain)
-    console.log(account)
-
-    if (account?.chain?.name === undefined) {
+    if (account?.chain?.id === undefined) {
         return (
             <Button onClick={() => connect({ connector: connectors[2] })} sx={mintButtonStyle} size="small" >
                 [ connect wallet ]
             </Button>
         )
     }
-    else if (account?.chain?.name !== "Base") {
+    else if (account?.chain?.id !== baseChainId) {
         return (
             <Button onClick={() => switchChain({ chainId: chains[0]?.id })} sx={mintButtonStyle} size="small" >
                 [ switch to base ]
             </Button>
         )
     }
-    else if (account?.chain?.name === "Base") {
+    else if (account?.chain?.id === baseChainId) {
         return (
             <Button onClick={mint} sx={mintButtonStyle} size="small" disabled={mintable || pending}>
                 [ mint ]
@@ -134,8 +134,6 @@ function CompArguments() {
     const [comment, setComment] = React.useState<string>("");
 
     const [value, setValue] = React.useState(1);
-
-    console.log(value)
 
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
         if (event)

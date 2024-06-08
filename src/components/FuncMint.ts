@@ -52,7 +52,7 @@ export function MintNFT({
         writeContract
     } = useWriteContract()
 
-    console.log("quantity : ", quantity)
+    //console.log("quantity : ", quantity)
 
     const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
@@ -80,7 +80,6 @@ export function MintNFT({
                 },
             });
             setParams(params);
-            console.log("params.check: ", params);
         };
         makeParams();
     }, [mintClient, recipent, quantity, comment]);
