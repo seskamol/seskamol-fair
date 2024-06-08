@@ -1,14 +1,15 @@
 //
-import { useEffect, useMemo, useState } from "react";
-
-import { config } from '../wagmi';
+import {
+    useEffect,
+    useMemo,
+    useState
+} from "react";
 
 import {
     Address,
 } from "viem";
 
 import {
-    //type BaseError,
     useWaitForTransactionReceipt,
     useWriteContract,
     useAccount,
@@ -17,26 +18,19 @@ import {
 } from 'wagmi'
 
 import { SimulateContractParameters } from 'wagmi/actions';
+import { createMintClient } from "@zoralabs/protocol-sdk";
 
-import {
-    createMintClient,
-} from "@zoralabs/protocol-sdk";
+import { config } from "../wagmi";
 
 const useMintClient = () => {
 
     const publicClient = usePublicClient({ config })
-
-    console.log("publicClient : ", publicClient);
-
     const { chain } = useAccount();
-
-    //console.log("chain : ", chain);
 
     const mintClient = useMemo(
         () => chain && createMintClient({ chain }),
         [chain, publicClient],
     );
-
     return mintClient;
 };
 
@@ -49,7 +43,6 @@ export function MintNFT({
 }) {
 
     const { address } = useAccount();
-
     const mintClient = useMintClient();
 
     const {
@@ -59,11 +52,13 @@ export function MintNFT({
         writeContract
     } = useWriteContract()
 
+    console.log("quantity : ", quantity)
+
     const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
     const tokenId: bigint = BigInt(1);
     //const quantity: number = 1;
-    //const comment: string = "wagmitestcommentglb";
+    //const comment: string = "wagmitestcomment";
     const mintReferral: Address = "0x99e63EA86766ed7526B994AAb727FE5cf0178D40";
 
     const [params, setParams] = useState<SimulateContractParameters>();
@@ -78,13 +73,14 @@ export function MintNFT({
                 tokenAddress: erc1155Address,
                 mintArguments: {
                     mintToAddress: recipent,
-                    quantityToMint: quantity,
+                    quantityToMint: Number(quantity),
                     mintReferral,
                     saleType: "fixedPrice",
                     mintComment: comment,
                 },
             });
             setParams(params);
+            console.log("params.check: ", params);
         };
         makeParams();
     }, [mintClient, recipent, quantity, comment]);
@@ -92,41 +88,13 @@ export function MintNFT({
     // @ts-ignore
     const { data } = useSimulateContract(params);
 
-    async function submit() { writeContract(data!.request) }
+    //console.log("data.check: ", data)
+
+    async function mint() { writeContract(data!.request) }
 
     const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({ hash })
 
     return (
-        { isPending, isConfirming, isConfirmed, error, submit }
-        //        <Box sx={boxStyle} component={'div'}>
-        //
-        //            <form onSubmit={submit}>
-        //                <button
-        //                    disabled={isPending}
-        //                    type="submit"
-        //                >
-        //                    {isPending ? 'Confirming...' : 'Mint'}
-        //                </button>
-        //                {hash && <div>Transaction Hash: {hash}</div>}
-        //                {isConfirming && <div>Waiting for confirmation...</div>}
-        //                {isConfirmed && <div>Transaction confirmed.</div>}
-        //                {error && (
-        //                    <div>Error: {(error as BaseError).shortMessage || error.message}</div>
-        //                )}
-        //                <br />---
-        //                {error && (
-        //                    <div>Error: {(error as BaseError).details || error.message}</div>
-        //                )}
-        //                <br />---
-        //                {error && (
-        //                    <div>Error: {(error as BaseError).docsPath || error.message}</div>
-        //                )}
-        //                <br />---
-        //                {error && (
-        //                    <div>Error: {(error as BaseError).stack || error.message}</div>
-        //                )}
-        //            </form>
-        //
-        //        </Box>
+        { isPending, isConfirming, isConfirmed, error, mint, data }
     )
 }

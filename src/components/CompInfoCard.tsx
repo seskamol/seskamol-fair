@@ -11,9 +11,10 @@ import {
     Card,
     CardMedia,
     CardContent,
+    Skeleton
 } from '@mui/material';
 
-const cardPNG = 'https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeicjbxn2hxbiunvmes7hl6jtrovrmsb7wwiyujdutwez7b7yc6sh4q&amp;w=1920&amp;q=75'
+const cardPNG = "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeidzxb2sgms6flilbbabfretdv6i3trz3odfavojaeyz4xqql47y4e&amp;w=1920&amp;q=75"
 
 const cardBoxStyle = {
     justifyContent: 'center',
@@ -91,12 +92,24 @@ function InfoCard() {
                         <Box component={"div"} sx={cardBoxSx} style={cardBoxStyle}>
                             <Box component={"div"} sx={cardBoxFixSx} style={cardBoxFixStyle}>
                                 <Card variant="outlined" sx={{ p: 4, pr: 5, maxWidth: '100%', bgcolor: 'rgb(0,0,0,1)' }}>
-                                    <CardMedia
-                                        component="img"
-                                        width="1000vw"
-                                        height="1000vh"
-                                        image={cardPNG}
-                                    />
+
+                                    {
+                                        cardPNG ? (
+                                            <CardMedia
+                                                component="img"
+                                                width="1000vw"
+                                                height="1000vh"
+                                                image={cardPNG}
+                                            />
+                                        ) : (
+                                            <Skeleton
+                                                variant="rectangular"
+                                                width="1000vw"
+                                                height="1000vh"
+                                                sx={{ bgcolor: 'black' }}
+                                            />
+                                        )
+                                    }
 
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">

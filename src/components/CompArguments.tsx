@@ -8,6 +8,10 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 
+import { useSwitchChain } from 'wagmi'
+
+import { FuncConnect } from './FuncConnect'
+
 import CompSnacks from './CompSnacks'
 
 import { MintNFT } from './FuncMint';
@@ -72,19 +76,64 @@ const uTypStyle = {
     pl: 0.5,
 }
 
+interface WalletStatusProps {
+    mint: () => void;
+    mintable: boolean;
+    pending: boolean;
+}
+
+function WalletStatusConnectMint(props: WalletStatusProps) {
+
+    const { mint, mintable, pending } = props;
+
+    const { chains, switchChain } = useSwitchChain()
+
+    const { account, connectors, connect } = FuncConnect()
+
+    if (account?.chain?.name === undefined) {
+        return (
+            <Button onClick={() => connect({ connector: connectors[2] })} sx={mintButtonStyle} size="small" >
+                [ connect wallet ]
+            </Button>
+        )
+    }
+    else if (account?.chain?.name !== "Base") {
+        return (
+            <Button onClick={() => switchChain({ chainId: chains[0]?.id })} sx={mintButtonStyle} size="small" >
+                [ switch to base ]
+            </Button>
+        )
+    }
+    else if (account?.chain?.name === "Base") {
+        return (
+            <Button onClick={mint} sx={mintButtonStyle} size="small" disabled={mintable || pending}>
+                [ mint ]
+            </Button>
+        )
+    }
+    else {
+        return (
+            <Button onClick={() => connect({ connector: connectors[0] })} sx={mintButtonStyle} size="small" >
+                [ connect wallet ]
+            </Button>
+        )
+    }
+}
+
 function CompArguments() {
 
     const [comment, setComment] = React.useState<string>("");
 
     const [value, setValue] = React.useState(1);
-    // @ts-ignore
+
+    console.log(value)
+
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
-        setValue(newValue as number);
+        if (event)
+            setValue(newValue as number);
     };
 
-    const { isPending, isConfirmed, submit } = MintNFT({ quantity: value, comment });
-
-    //console.log(isPending, isConfirming, isConfirmed, error)
+    const { isPending, isConfirmed, mint, data } = MintNFT({ quantity: value, comment });
 
     return (
         <Box
@@ -109,13 +158,13 @@ function CompArguments() {
                 <AccordionDetails sx={accordionDetailsStyle}>
 
                     <Typography sx={uTypStyle} variant="subtitle1" color="rgb(255,255,255,0.6)">
-                        ERC-1155 Zora Contract on Base Mainnet...
+                        Zora ERC-1155 Contract on Base Mainnet...
                     </Typography>
 
 
                     <Box sx={{ display: 'flex', direction: 'column', width: '100%', pr: 0.4 }} component={'div'}>
                         <Typography sx={uTypStyle} variant="subtitle1" color="rgb(255,255,255,0.6)">
-                            quantity: {value}
+                            Quantity: {value}
                         </Typography>
                         <Slider
                             sx={{ width: '370%', pb: 2 }}
@@ -123,23 +172,21 @@ function CompArguments() {
                             size="small"
                             defaultValue={1}
                             onChange={handleSliderChange}
-                            step={1}
+                            step={9}
                             marks
                             min={1}
-                            max={50}
+                            max={300}
                         />
                     </Box>
 
                     <TextField onChange={(e) => { setComment(e.target.value) }} fullWidth name="commentfield" label="comment" id="comment" size="small" />
 
-                    <Button onClick={submit} sx={mintButtonStyle} size="small" >
-                        [ mint ]
-                    </Button>
+                    <WalletStatusConnectMint mint={mint} mintable={Boolean(data === undefined)} pending={isPending} />
 
                 </AccordionDetails>
 
                 {isPending ? (
-                    <LinearProgress sx={{ mt: 1 }} />
+                    <LinearProgress sx={{ mt: 1, mb: 1 }} />
                 ) : (
                     ''
                 )}

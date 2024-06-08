@@ -18,7 +18,6 @@ const lBoxSx = {
     bgcolor: 'transparent',
     borderColor: "secondary.light",
     p: 1,
-    pt: 0.5,
     mt: 1,
 }
 

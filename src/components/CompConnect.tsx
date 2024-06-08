@@ -1,9 +1,11 @@
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
+//import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 import { Button, Box, Typography } from '@mui/material';
 import { cBoxStyle } from '../theme/Sx'
 
 import CompSwitchChain from './CompSwitchChain'
+
+import { FuncConnect } from './FuncConnect'
 
 export const mBoxStyle = {
     border: 1,
@@ -30,9 +32,11 @@ export const uTypStyle = {
 }
 
 function CompConnect() {
-    const account = useAccount()
-    const { connectors, connect, status, error } = useConnect()
-    const { disconnect } = useDisconnect()
+
+    //const account = useAccount()
+    //const { connectors, connect, status, error } = useConnect()
+    //const { disconnect } = useDisconnect()
+    const { account, connectors, connect, status, error, disconnect } = FuncConnect()
 
     return (
         <Box component={'div'} sx={mBoxStyle}>
@@ -54,21 +58,19 @@ function CompConnect() {
             </Box>
 
             <Box component={'div'}>
-                {/* <Typography sx={uTypStyle}>Connect</Typography> */}
+
                 <Box sx={cBoxStyle} component={'div'}>
                     {connectors.map((connector) => (
-                        <>
-                            <Button
-                                size="small"
-                                key={connector.uid}
-                                onClick={() => connect({ connector })}
-                                type="button"
-                                variant="outlined"
-                                sx={{ pl: 1.6, mr: 0.5 }}
-                            >
-                                {connector.name}
-                            </Button>
-                        </>
+                        <Button
+                            size="small"
+                            key={connector.uid}
+                            onClick={() => connect({ connector })}
+                            type="button"
+                            variant="outlined"
+                            sx={{ pl: 1.6, mr: 0.5 }}
+                        >
+                            {connector.name}
+                        </Button>
                     ))}
 
                 </Box>
