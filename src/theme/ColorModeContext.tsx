@@ -1,10 +1,9 @@
 import React from "react";
-import { createContext/* , useContext  */ } from "react";
+import { createContext } from "react";
 import { PaletteMode } from "@mui/material";
 import createTheme from "@mui/material/styles/createTheme";
 
 import { themeSettings } from "./theme";
-//import { theme } from "./theme";
 
 type ColorModeContextType = {
     toggleColorMode: () => void;
@@ -16,18 +15,6 @@ export const ColorMode = () => {
     const [mode, setMode] = React.useState<PaletteMode>('dark');
 
     const toggleColorMode = () => setMode((prev) => (prev === "light" ? "dark" : "light"));
-
-    /*     const preTheme = React.useMemo(
-            () =>
-                createTheme({
-                    ...theme,
-                    palette: {
-                        ...theme.palette,
-                        mode,
-                    },
-                }),
-            [mode]
-        ); */
 
     const preTheme = React.useMemo(
         () => createTheme(themeSettings(mode)), [mode]

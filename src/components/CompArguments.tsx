@@ -90,6 +90,15 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
 
     const { account, connectors, connect } = FuncConnect()
 
+    //Base Sepholia: 84532
+    //Zora Mainnet: 7777777
+
+
+
+    console.log(account?.chain?.Id)
+    console.log(account?.chain)
+    console.log(account)
+
     if (account?.chain?.name === undefined) {
         return (
             <Button onClick={() => connect({ connector: connectors[2] })} sx={mintButtonStyle} size="small" >

@@ -22,7 +22,6 @@ function CompGlb() {
 
     const data = useContext(MainContext);
 
-    //event: React.MouseEvent<HTMLElement>
     const handleClick: any = () => {
         data?.setOpen((previousOpen: any) => !previousOpen);
     };
