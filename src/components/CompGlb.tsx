@@ -1,7 +1,7 @@
 //
 import { useRef } from 'react'
 
-import { useFrame } from "@react-three/fiber";
+//import { useFrame } from "@react-three/fiber";
 import { useGLTF, Html } from '@react-three/drei'
 
 import { MainContext, useContext } from '../context/MainContext';
@@ -18,7 +18,7 @@ function CompGlb() {
     const { nodes, materials } = useGLTF(gltf)
 
     // @ts-ignore
-    useFrame(() => (ref.current.rotation.y += 0.00017));
+    //useFrame(() => (ref.current.rotation.y += 0.00017));
 
     const data = useContext(MainContext);
 
@@ -34,7 +34,7 @@ function CompGlb() {
                 // @ts-ignore
                 geometry={nodes.fbxNode_fbxMesh.geometry}
                 material={materials.defaultMat}
-                rotation={[(Math.PI / 2), 0, 0.6]}
+                rotation={[(Math.PI / 2), 0, 0]}
             >
                 <Html>
                 </Html>
