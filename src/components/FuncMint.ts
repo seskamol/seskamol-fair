@@ -40,7 +40,6 @@ export function MintNFT({
     quantity: number;
     comment?: string;
 }) {
-
     const { address } = useAccount();
     const mintClient = useMintClient();
 
@@ -51,7 +50,8 @@ export function MintNFT({
         writeContract
     } = useWriteContract()
 
-    //console.log("quantity : ", quantity)
+    //BASEMAINNET//0x743a00292526d31345ee933cc8e91ddf8ff3f047
+    //BASESEPHOLIA//0x43ca10c87627cd4dc831b270f7cb986dbe3bcfe2
 
     const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
@@ -85,7 +85,6 @@ export function MintNFT({
 
     // @ts-ignore
     const { data } = useSimulateContract(params);
-
     //console.log("data.check: ", data)
 
     async function mint() { writeContract(data!.request) }

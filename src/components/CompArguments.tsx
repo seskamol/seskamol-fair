@@ -90,29 +90,34 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
     const { account, connectors, connect } = FuncConnect()
 
     const baseChainId: number = 8453
+    const baseSepholiaId: number = 84532
 
     //Base Mainnet: 8453
     //Zora Mainnet: 7777777
 
-    //console.log(typeof (account?.chain?.id))
-    //console.log(account?.chain)
-    //console.log(account)
+    if (account?.chainId === undefined) {
 
-    if (account?.chain?.id === undefined) {
         return (
             <Button onClick={() => connect({ connector: connectors[2] })} sx={mintButtonStyle} size="small" >
                 [ connect wallet ]
             </Button>
         )
     }
-    else if (account?.chain?.id !== baseChainId) {
+    else if (account?.chainId === baseSepholiaId) {
+        return (
+            <Button onClick={mint} sx={mintButtonStyle} size="small" disabled={mintable || pending}>
+                [ mint ]
+            </Button>
+        )
+    }
+    else if (account?.chainId !== baseChainId) {
         return (
             <Button onClick={() => switchChain({ chainId: chains[0]?.id })} sx={mintButtonStyle} size="small" >
                 [ switch to base ]
             </Button>
         )
     }
-    else if (account?.chain?.id === baseChainId) {
+    else if (account?.chainId === baseChainId) {
         return (
             <Button onClick={mint} sx={mintButtonStyle} size="small" disabled={mintable || pending}>
                 [ mint ]
@@ -139,7 +144,7 @@ function CompArguments() {
             setValue(newValue as number);
     };
 
-    const { isPending, isConfirmed, mint, data } = MintNFT({ quantity: value, comment });
+    const { isPending, isConfirmed, mint, error, data } = MintNFT({ quantity: value, comment });
 
     return (
         <Box
@@ -178,10 +183,10 @@ function CompArguments() {
                             size="small"
                             defaultValue={1}
                             onChange={handleSliderChange}
-                            step={9}
+                            step={1}
                             marks
                             min={1}
-                            max={300}
+                            max={181}
                         />
                     </Box>
 
@@ -192,14 +197,14 @@ function CompArguments() {
                 </AccordionDetails>
 
                 {isPending ? (
-                    <LinearProgress sx={{ mt: 1, mb: 1 }} />
+                    <LinearProgress sx={{ mt: 1, mb: 1, bgcolor: 'primary.light' }} />
                 ) : (
                     ''
                 )}
 
             </Accordion>
 
-            <CompSnacks confirmed={isConfirmed} />
+            <CompSnacks writeConfirmed={isConfirmed} writeError={error} />
         </Box>
     );
 }

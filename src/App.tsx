@@ -63,6 +63,7 @@ function App() {
       <ColorModeContext.Provider value={theme}>
         <ThemeProvider theme={theme.theme}>
           <CssBaseline />
+
           <Box
             component={"div"}
             style={aBoxStyle}
@@ -72,7 +73,7 @@ function App() {
               component={"div"}
               sx={cBoxSx}
             >
-              <Button onClick={theme.toggleColorMode} size="small" sx={{ border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
+              <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
 
               <CompConnect />
               <CompThree />
@@ -80,6 +81,7 @@ function App() {
 
             </Box>
             <CompLinks />
+
 
           </Box>
         </ThemeProvider>

@@ -13,7 +13,6 @@ import {
     Card,
     CardMedia,
     CardContent,
-    Skeleton,
     Paper
 } from '@mui/material';
 
@@ -31,8 +30,9 @@ const cardPaperStyle = {
     //width: '100vw',
     //height: '50vh',
     alignItems: 'center',
-    border: '2px solid #111',
+    border: '2px solid #101',
     background: 'black',
+
 }
 
 const cardPaperSx = {
@@ -92,22 +92,12 @@ function InfoCard() {
                             pr: 5,
                         }}
                     >
-                        {
-                            cardPNG ? (
-                                <CardMedia
-                                    component="img"
-                                    image={cardPNG}
-                                    sx={{ height: { xs: '100%', sm: '100%', md: '67vh' } }}
-                                //width="100%"
-                                //height="90%"
-                                />
-                            ) : (
-                                <Skeleton
-                                    variant="rectangular"
-                                    sx={{ height: { xs: '100%', sm: '100%', md: '67vh' }, bgcolor: 'black' }}
-                                />
-                            )
-                        }
+
+                        <CardMedia
+                            component="img"
+                            image={cardPNG}
+                            sx={{ height: { xs: '100%', sm: '100%', md: '67vh' } }}
+                        />
 
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">

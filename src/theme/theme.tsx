@@ -76,7 +76,7 @@ export const themeSettings = (mode: PaletteMode) => {
                     },
                     secondary: {
                         main: 'rgba(255,255,255,1.0)',
-                        light: 'rgba(255,255,255,0.1)',
+                        light: 'rgba(255,255,255,0.047)',
                         dark: 'rgba(0,0,0,0.0)',
                         contrastText: 'rgba(255,255,255,0.79)',
                     },
@@ -98,14 +98,14 @@ export const themeSettings = (mode: PaletteMode) => {
                     },
                 } : {
                     primary: {
-                        main: 'rgba(0,255,255,1.00)',
-                        light: 'rgba(255,255,255,0.6)',
+                        main: 'rgba(0,255,255,1.0)',
+                        light: 'rgba(0,255,255,0.6)',
                         dark: 'rgba(144,0,2,0.92)',
                         contrastText: 'rgba(255,255,255,0.98)',
                     },
                     secondary: {
                         main: 'rgba(255,255,255,0.3)',
-                        light: 'rgba(255,255,255,0.8)',
+                        light: 'rgba(255,255,255,0.12)',
                         dark: 'rgba(133,0,47,0.95)',
                         contrastText: 'rgba(255,255,255,0.79)',
                     },

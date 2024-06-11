@@ -34,12 +34,16 @@ function CompLinks() {
             style={lBoxStyle}
             sx={lBoxSx}
         >
-            <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
-                https://zora.co/seskamol
+            <Button sx={buttonStyle} href="https://soundcloud.com/seskamol" target="_blank" size="small" >
+                https://soundcloud.com/seskamol
             </Button>
 
-            <Button sx={buttonStyle} href="https://www.instagram.com/seskamol/" target="_blank" size="small" >
-                https://www.instagram.com/seskamol/
+            <Button sx={buttonStyle} href="https://instagram.com/seskamol/" target="_blank" size="small" >
+                https://instagram.com/seskamol
+            </Button>
+
+            <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
+                https://zora.co/seskamol
             </Button>
 
         </Box>
