@@ -1,4 +1,3 @@
-//
 import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
 
 const networkInfo = {

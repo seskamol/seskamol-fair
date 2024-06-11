@@ -1,4 +1,3 @@
-//
 import * as React from 'react';
 import { Box, Button, LinearProgress } from '@mui/material'
 import Accordion from '@mui/material/Accordion';

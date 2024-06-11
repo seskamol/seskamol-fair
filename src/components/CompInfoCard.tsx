@@ -1,5 +1,7 @@
-//
-import { MainContext, useContext } from '../context/MainContext';
+import {
+    MainContext,
+    useContext
+} from '../context/MainContext';
 
 import {
     //Backdrop,
@@ -17,32 +19,32 @@ import {
 
 const cardPNG = "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeidzxb2sgms6flilbbabfretdv6i3trz3odfavojaeyz4xqql47y4e&amp;w=1920&amp;q=75"
 
-const cardBoxStyle = {
-    justifyContent: 'center',
-    width: '100000vw',
-    height: '50vh',
-    alignItems: 'center',
-    border: '2px solid #111',
-    background: 'black',
-}
-
-const cardBoxSx = {
-    display: 'flex',
-    alignSelf: 'center',
-    width: '100%',
-    height: '100%',
-    border: 1,
-    borderColor: "secondary.light",
-    bgcolor: 'black',
-    p: 1,
-    outline: 'none',
-}
-
 const buttonStyle = {
     display: 'flex',
     justifyContent: 'start',
     width: '100%',
     mb: 2
+}
+
+const cardPaperStyle = {
+    justifyContent: 'center',
+    //width: '100vw',
+    //height: '50vh',
+    alignItems: 'center',
+    border: '2px solid #111',
+    background: 'black',
+}
+
+const cardPaperSx = {
+    display: 'flex',
+    alignSelf: 'center',
+    //width: '90vw',
+    //height: '90vh',
+    border: 1,
+    borderColor: "secondary.light",
+    bgcolor: 'black',
+    p: 1,
+    outline: 'none',
 }
 
 const mModalSx = {
@@ -77,37 +79,32 @@ function InfoCard() {
             //slots={{ backdrop: Backdrop }}
             slotProps={{
                 backdrop: {
-                    timeout: 100,
+                    timeout: 1300,
                 },
             }}
         >
             <Fade in={data?.opened}>
-                <Paper component={"div"} sx={cardBoxSx} style={cardBoxStyle}>
+                <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>
                     <Card variant="outlined"
                         sx={{
+                            bgcolor: 'rgb(0,0,0,1)',
                             p: 4,
                             pr: 5,
-                            maxWidth: '100%',
-                            bgcolor: 'rgb(0,0,0,1)',
-                            minHeight: '1000px',
-
                         }}
                     >
-
                         {
                             cardPNG ? (
                                 <CardMedia
                                     component="img"
-                                    width="900vw"
-                                    height="1500vh"
                                     image={cardPNG}
+                                    sx={{ height: { xs: '100%', sm: '100%', md: '67vh' } }}
+                                //width="100%"
+                                //height="90%"
                                 />
                             ) : (
                                 <Skeleton
                                     variant="rectangular"
-                                    width="900vw"
-                                    height="1000vh"
-                                    sx={{ bgcolor: 'black' }}
+                                    sx={{ height: { xs: '100%', sm: '100%', md: '67vh' }, bgcolor: 'black' }}
                                 />
                             )
                         }
