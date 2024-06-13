@@ -6,16 +6,14 @@ import {
 } from "react";
 
 import {
-    Address,
-} from "viem";
-
-import {
     useWaitForTransactionReceipt,
     useWriteContract,
     useAccount,
     usePublicClient,
-    useSimulateContract,
+    useSimulateContract
 } from 'wagmi'
+
+import { Address } from "viem";
 
 import { SimulateContractParameters } from 'wagmi/actions';
 import { createMintClient } from "@zoralabs/protocol-sdk";

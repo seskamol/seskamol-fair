@@ -1,5 +1,7 @@
 import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
 
+import { Address } from "viem";
+
 const networkInfo = {
     network: ZDKNetwork.Base,
     chain: ZDKChain.BaseMainnet,
@@ -22,9 +24,15 @@ async function fetchTokens(zdk: ZDK, collectionAddresses: string[]) {
     });
 }
 
-export async function getTokens() {
+/////// 0x743a00292526d31345ee933cc8e91ddf8ff3f047
 
-    const tokenData = await fetchTokens(zdk, ['0x743a00292526d31345ee933cc8e91ddf8ff3f047']);
+export async function getTokens({
+    erc1155Address,
+}: {
+    erc1155Address: Address;
+}) {
+
+    const tokenData = await fetchTokens(zdk, [erc1155Address]);
 
     //console.log(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
     //const modelPath = tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");

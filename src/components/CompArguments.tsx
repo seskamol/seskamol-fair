@@ -7,6 +7,10 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 
+import {
+    MainContext
+} from '../context/MainContext';
+
 import { useSwitchChain } from 'wagmi'
 import { Address } from 'viem';
 
@@ -88,8 +92,10 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
 
     const { chains, switchChain } = useSwitchChain();
 
+    const data = useContext(MainContext);
+
     const FuncConnect = useContext(ConntectWalletContext);
-    const { account, connectors, connect } = FuncConnect();
+    const { account } = FuncConnect();
 
     const baseChainId: number = 8453;
     const baseSepholiaId: number = 84532;
@@ -98,9 +104,8 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
     //Zora Mainnet: 7777777
 
     if (account?.chainId === undefined) {
-
         return (
-            <Button onClick={() => connect({ connector: connectors[2] })} sx={mintButtonStyle} size="small" >
+            <Button onClick={() => data?.setOpenModalConnect(true)} sx={mintButtonStyle} size="small" >
                 [ connect wallet ]
             </Button>
         )
@@ -128,7 +133,7 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
     }
     else {
         return (
-            <Button onClick={() => connect({ connector: connectors[0] })} sx={mintButtonStyle} size="small" >
+            <Button onClick={() => data?.setOpenModalConnect(true)} sx={mintButtonStyle} size="small" >
                 [ connect wallet ]
             </Button>
         )

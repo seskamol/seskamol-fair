@@ -1,16 +1,27 @@
-//import { useAccount, useConnect, useDisconnect } from 'wagmi'
-
-import { Button, Box, Typography } from '@mui/material';
-import { cBoxStyle } from '../theme/Sx'
-
-import CompSwitchChain from './CompSwitchChain'
-
-//import { FuncConnect } from './FuncConnect'
+import { useContext } from 'react';
+import {
+    Button,
+    Box,
+    Typography
+} from '@mui/material';
 
 import { ConntectWalletContext } from './FuncConnect'
-import { useContext } from 'react';
+import CompSwitchChain from './CompSwitchChain'
 
-export const mBoxStyle = {
+const cBoxStyle = {
+    border: 1,
+    bgcolor: "background.default",
+    borderColor: "secondary.light",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'top',
+    mb: 1,
+    mt: 0,
+    p: 0.5,
+}
+
+const mBoxStyle = {
     border: 1,
     bgcolor: "transparent",
     borderColor: "secondary.light",
@@ -22,7 +33,7 @@ export const mBoxStyle = {
     pl: 1, pr: 1,
 }
 
-export const uTypStyle = {
+const uTypStyle = {
     border: 1,
     bgcolor: "transparent",
     borderColor: "secondary.light",
@@ -36,9 +47,6 @@ export const uTypStyle = {
 
 function CompConnect() {
 
-    //const account = useAccount()
-    //const { connectors, connect, status, error } = useConnect()
-    //const { disconnect } = useDisconnect()
     const FuncConnect = useContext(ConntectWalletContext)
     const { account, connectors, connect, /* status, */ error, disconnect } = FuncConnect()
 
@@ -52,7 +60,7 @@ function CompConnect() {
                     <br />
                     ChainId: {account.chainId}
                     <br />
-                    Error: {error?.message !== undefined ? String(error?.message).split(".")[0] : "null"}
+                    Error: {error?.message !== undefined ? String(error?.message).split(".")[0] : ""}
                 </Typography>
 
                 <Box sx={cBoxStyle} component={'div'}>
@@ -84,12 +92,6 @@ function CompConnect() {
 
                 <CompSwitchChain />
 
-                {/*                 <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
-                    Status: {status}
-                </Typography>
-                <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
-                    Error: {error?.message}
-                </Typography> */}
             </Box>
         </Box>
     )

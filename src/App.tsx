@@ -12,6 +12,7 @@ import {
 import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
+import CompModalConnect from './components/CompModalConnect'
 //import CompInfoCard from './components/CompInfoCard'
 //import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
@@ -48,9 +49,11 @@ const cBoxSx = {
 function App() {
 
   const [opened, setOpen] = useState<boolean>(false);
+  const [openedModalConnect, setOpenModalConnect] = useState<boolean>(false);
 
   const data = {
     opened, setOpen,
+    openedModalConnect, setOpenModalConnect,
   }
 
   const theme = ColorMode();
@@ -73,10 +76,13 @@ function App() {
                   sx={cBoxSx}
                 >
                   <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
+
                   <CompConnect />
+                  <CompModalConnect />
+
                   <CompMenu />
                   {/* <CompThree />
-              <CompInfoCard /> */}
+                  <CompInfoCard /> */}
                 </Box>
                 <CompLinks />
 
