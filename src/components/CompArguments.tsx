@@ -153,6 +153,7 @@ function CompArguments() {
 
     const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const tokenId: bigint = BigInt(1);
+
     const FuncMint = useContext(MintTransactionContext);
     const { isPending, isConfirmed, mint, error, data } = FuncMint({ erc1155Address, tokenId, quantity: value, comment });
 

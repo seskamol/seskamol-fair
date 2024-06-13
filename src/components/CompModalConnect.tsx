@@ -3,27 +3,17 @@ import {
     useContext
 } from '../context/MainContext';
 
-
 import {
     //Backdrop,
-    //Box,
+    Box,
     Modal,
     Button,
     Fade,
     Paper,
-    Box,
     Divider
 } from '@mui/material';
 
 import { ConntectWalletContext } from './FuncConnect'
-
-
-//const buttonStyle = {
-//    display: 'flex',
-//    justifyContent: 'start',
-//    width: '100%',
-//    mb: 2
-//}
 
 const cBoxStyle = {
     border: 1,
@@ -40,19 +30,14 @@ const cBoxStyle = {
 
 const cardPaperStyle = {
     justifyContent: 'center',
-    //width: '100vw',
-    //height: '50vh',
     alignItems: 'center',
     border: '2px solid #101',
     background: 'black',
-
 }
 
 const cardPaperSx = {
     display: 'flex',
     alignSelf: 'center',
-    //width: '90vw',
-    //height: '90vh',
     border: 1,
     borderColor: "secondary.light",
     bgcolor: 'black',
@@ -63,7 +48,7 @@ const cardPaperSx = {
 }
 
 const mModalSx = {
-    /*  zIndex: '1px', */
+    /*  zIndex: 3, */
     display: 'flex',
     flexDirection: 'column',
     alignSelf: 'center',
@@ -101,8 +86,6 @@ function ModalConnect() {
         >
             <Fade in={data?.openedModalConnect}>
                 <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>
-
-
                     <Box sx={cBoxStyle} component={'div'}>
                         {connectors.map((connector) => (
                             <Button
@@ -121,7 +104,6 @@ function ModalConnect() {
 
                         <Button
                             size="small"
-
                             onClick={() => data?.setOpenModalConnect(false)}
                             type="button"
                             variant="outlined"
@@ -129,14 +111,7 @@ function ModalConnect() {
                         >
                             EXIT
                         </Button>
-
-
                     </Box>
-
-
-
-
-
                 </Paper>
             </Fade>
         </Modal>

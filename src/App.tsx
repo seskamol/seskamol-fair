@@ -13,10 +13,8 @@ import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
 import CompModalConnect from './components/CompModalConnect'
-//import CompInfoCard from './components/CompInfoCard'
-//import CompThree from './components/CompThree'
-import CompLinks from './components/CompLinks'
 import CompMenu from './components/CompMenu'
+import CompLinks from './components/CompLinks'
 
 import { ConntectWalletContextProvider } from './components/FuncConnect';
 import { MintTransactionContextProvider } from './components/FuncMint';
@@ -78,14 +76,11 @@ function App() {
                   <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
 
                   <CompConnect />
+                  <CompMenu />
                   <CompModalConnect />
 
-                  <CompMenu />
-                  {/* <CompThree />
-                  <CompInfoCard /> */}
                 </Box>
                 <CompLinks />
-
 
               </Box>
             </MintTransactionContextProvider>
