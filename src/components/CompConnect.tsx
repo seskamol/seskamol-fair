@@ -5,7 +5,10 @@ import { cBoxStyle } from '../theme/Sx'
 
 import CompSwitchChain from './CompSwitchChain'
 
-import { FuncConnect } from './FuncConnect'
+//import { FuncConnect } from './FuncConnect'
+
+import { ConntectWalletContext } from './FuncConnect'
+import { useContext } from 'react';
 
 export const mBoxStyle = {
     border: 1,
@@ -36,7 +39,8 @@ function CompConnect() {
     //const account = useAccount()
     //const { connectors, connect, status, error } = useConnect()
     //const { disconnect } = useDisconnect()
-    const { account, connectors, connect, status, error, disconnect } = FuncConnect()
+    const FuncConnect = useContext(ConntectWalletContext)
+    const { account, connectors, connect, /* status, */ error, disconnect } = FuncConnect()
 
     return (
         <Box component={'div'} sx={mBoxStyle}>
@@ -47,11 +51,14 @@ function CompConnect() {
                     Address: {JSON.stringify(account.address)}
                     <br />
                     ChainId: {account.chainId}
+                    <br />
+                    Error: {error?.message !== undefined ? String(error?.message).split(".")[0] : "null"}
                 </Typography>
+
                 <Box sx={cBoxStyle} component={'div'}>
                     {account.status === 'connected' && (
                         <Button size="small" onClick={() => disconnect()}>
-                            Disconnect
+                            Disconnect {account.address !== undefined ? " ~ " + String(account.chainId) + " ~ " + String(account.address) : ""}
                         </Button>
                     )}
                 </Box>
@@ -77,12 +84,12 @@ function CompConnect() {
 
                 <CompSwitchChain />
 
-                <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
+                {/*                 <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
                     Status: {status}
                 </Typography>
                 <Typography sx={uTypStyle} gutterBottom variant="body2" color="text.secondary">
                     Error: {error?.message}
-                </Typography>
+                </Typography> */}
             </Box>
         </Box>
     )

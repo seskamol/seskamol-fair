@@ -12,11 +12,14 @@ import {
 import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
 //
 import CompConnect from './components/CompConnect'
-import CompInfoCard from './components/CompInfoCard'
-import CompThree from './components/CompThree'
+//import CompInfoCard from './components/CompInfoCard'
+//import CompThree from './components/CompThree'
 import CompLinks from './components/CompLinks'
+import CompMenu from './components/CompMenu'
 
-/////////////////////////////
+import { ConntectWalletContextProvider } from './components/FuncConnect';
+import { MintTransactionContextProvider } from './components/FuncMint';
+
 const aBoxStyle = {
   padding: '7px',
   width: "100vw",
@@ -27,12 +30,6 @@ const aBoxSx = {
   border: 1,
   borderColor: "secondary.light"
 }
-///////////////////////////////////////////
-
-//const cBoxStyle = {
-//  //width: '100vw',
-//  //height: '100%',
-//}
 
 const cBoxSx = {
   border: 1,
@@ -62,28 +59,31 @@ function App() {
     <MainContext.Provider value={data}>
       <ColorModeContext.Provider value={theme}>
         <ThemeProvider theme={theme.theme}>
-          <CssBaseline />
+          <ConntectWalletContextProvider>
+            <MintTransactionContextProvider>
+              <CssBaseline />
 
-          <Box
-            component={"div"}
-            style={aBoxStyle}
-            sx={aBoxSx}
-          >
-            <Box
-              component={"div"}
-              sx={cBoxSx}
-            >
-              <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
+              <Box
+                component={"div"}
+                style={aBoxStyle}
+                sx={aBoxSx}
+              >
+                <Box
+                  component={"div"}
+                  sx={cBoxSx}
+                >
+                  <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
+                  <CompConnect />
+                  <CompMenu />
+                  {/* <CompThree />
+              <CompInfoCard /> */}
+                </Box>
+                <CompLinks />
 
-              <CompConnect />
-              <CompThree />
-              <CompInfoCard />
 
-            </Box>
-            <CompLinks />
-
-
-          </Box>
+              </Box>
+            </MintTransactionContextProvider>
+          </ConntectWalletContextProvider>
         </ThemeProvider>
       </ColorModeContext.Provider>
     </MainContext.Provider>

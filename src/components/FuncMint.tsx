@@ -1,4 +1,5 @@
 import {
+    createContext,
     useEffect,
     useMemo,
     useState
@@ -33,10 +34,14 @@ const useMintClient = () => {
     return mintClient;
 };
 
-export function MintNFT({
+function FuncMint({
+    erc1155Address,
+    tokenId,
     quantity,
     comment,
 }: {
+    erc1155Address: Address;
+    tokenId: bigint;
     quantity: number;
     comment?: string;
 }) {
@@ -50,14 +55,7 @@ export function MintNFT({
         writeContract
     } = useWriteContract()
 
-    //BASEMAINNET//0x743a00292526d31345ee933cc8e91ddf8ff3f047
-    //BASESEPHOLIA//0x43ca10c87627cd4dc831b270f7cb986dbe3bcfe2
-
-    const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
     const recipent: Address = address!;
-    const tokenId: bigint = BigInt(1);
-    //const quantity: number = 1;
-    //const comment: string = "wagmitestcomment";
     const mintReferral: Address = "0x99e63EA86766ed7526B994AAb727FE5cf0178D40";
 
     const [params, setParams] = useState<SimulateContractParameters>();
@@ -95,3 +93,16 @@ export function MintNFT({
         { isPending, isConfirming, isConfirmed, error, mint, data }
     )
 }
+
+type MintTransactionContextProviderProps = {
+    children: React.ReactNode
+}
+
+export const MintTransactionContext = createContext(FuncMint);
+
+export const MintTransactionContextProvider = ({
+    children,
+}: MintTransactionContextProviderProps) => {
+    return <MintTransactionContext.Provider value={FuncMint}> {children} </MintTransactionContext.Provider>
+}
+

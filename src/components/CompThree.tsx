@@ -15,7 +15,6 @@ const tBoxSx = {
     display: 'grid',
     border: 1,
     borderColor: "secondary.light",
-    bgcolor: 'rgba(0,100,0,0.0)',
 }
 
 function Three() {

@@ -1,6 +1,18 @@
 import { useSwitchChain } from 'wagmi'
 import { Button, Box } from '@mui/material';
-import { cBoxStyle } from '../theme/Sx'
+
+export const cBoxStyle = {
+    border: 1,
+    bgcolor: "background.default",
+    borderColor: "secondary.light",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'top',
+    mb: 1,
+    mt: 0,
+    p: 0.5,
+}
 
 function CompSwitchChain() {
 

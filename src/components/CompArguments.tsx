@@ -8,12 +8,13 @@ import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 
 import { useSwitchChain } from 'wagmi'
+import { Address } from 'viem';
 
-import { FuncConnect } from './FuncConnect'
+import { ConntectWalletContext } from './FuncConnect'
+import { MintTransactionContext } from './FuncMint'
+import { useContext } from 'react';
 
 import CompSnacks from './CompSnacks'
-
-import { MintNFT } from './FuncMint';
 
 const argumentsBoxStyle = {
     display: 'flex',
@@ -85,12 +86,13 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
 
     const { mint, mintable, pending } = props;
 
-    const { chains, switchChain } = useSwitchChain()
+    const { chains, switchChain } = useSwitchChain();
 
-    const { account, connectors, connect } = FuncConnect()
+    const FuncConnect = useContext(ConntectWalletContext);
+    const { account, connectors, connect } = FuncConnect();
 
-    const baseChainId: number = 8453
-    const baseSepholiaId: number = 84532
+    const baseChainId: number = 8453;
+    const baseSepholiaId: number = 84532;
 
     //Base Mainnet: 8453
     //Zora Mainnet: 7777777
@@ -144,7 +146,10 @@ function CompArguments() {
             setValue(newValue as number);
     };
 
-    const { isPending, isConfirmed, mint, error, data } = MintNFT({ quantity: value, comment });
+    const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
+    const tokenId: bigint = BigInt(1);
+    const FuncMint = useContext(MintTransactionContext);
+    const { isPending, isConfirmed, mint, error, data } = FuncMint({ erc1155Address, tokenId, quantity: value, comment });
 
     return (
         <Box
@@ -183,10 +188,10 @@ function CompArguments() {
                             size="small"
                             defaultValue={1}
                             onChange={handleSliderChange}
-                            step={1}
+                            step={3}
                             marks
                             min={1}
-                            max={181}
+                            max={99}
                         />
                     </Box>
 
