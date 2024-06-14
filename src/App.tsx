@@ -18,6 +18,7 @@ import CompLinks from './components/CompLinks'
 
 import { ConntectWalletContextProvider } from './components/FuncConnect';
 import { MintTransactionContextProvider } from './components/FuncMint';
+import { TokensContextProvider } from './components/FuncTokens';
 
 const aBoxStyle = {
   padding: '7px',
@@ -62,27 +63,29 @@ function App() {
         <ThemeProvider theme={theme.theme}>
           <ConntectWalletContextProvider>
             <MintTransactionContextProvider>
-              <CssBaseline />
+              <TokensContextProvider>
+                <CssBaseline />
 
-              <Box
-                component={"div"}
-                style={aBoxStyle}
-                sx={aBoxSx}
-              >
                 <Box
                   component={"div"}
-                  sx={cBoxSx}
+                  style={aBoxStyle}
+                  sx={aBoxSx}
                 >
-                  <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
+                  <Box
+                    component={"div"}
+                    sx={cBoxSx}
+                  >
+                    <Button onClick={theme.toggleColorMode} size="small" sx={{ justifyContent: "flex-end", border: 1, borderColor: "secondary.light", width: '100%' }}> {theme.mode == 'dark' ? 'border' : 'close'} </Button>
 
-                  <CompConnect />
-                  <CompMenu />
-                  <CompModalConnect />
+                    <CompConnect />
+                    <CompMenu />
+                    <CompModalConnect />
+
+                  </Box>
+                  <CompLinks />
 
                 </Box>
-                <CompLinks />
-
-              </Box>
+              </TokensContextProvider>
             </MintTransactionContextProvider>
           </ConntectWalletContextProvider>
         </ThemeProvider>

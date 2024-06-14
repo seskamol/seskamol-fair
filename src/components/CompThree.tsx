@@ -27,7 +27,7 @@ function Three() {
         >
             <Suspense fallback={null}>
                 <Canvas camera={{ fov: 35, near: 0.1, far: 1000, position: [0, 0, 6] }} >
-                    <OrbitControls />
+                    <OrbitControls enableZoom={false} />
                     <CompGlb />
                 </Canvas>
             </Suspense>

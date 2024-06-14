@@ -1,4 +1,12 @@
-import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
+import {
+    createContext,
+} from "react";
+
+import {
+    ZDK,
+    ZDKNetwork,
+    ZDKChain
+} from "@zoralabs/zdk";
 
 import { Address } from "viem";
 
@@ -26,18 +34,32 @@ async function fetchTokens(zdk: ZDK, collectionAddresses: string[]) {
 
 /////// 0x743a00292526d31345ee933cc8e91ddf8ff3f047
 
-export async function getTokens({
-    erc1155Address,
+async function GetTokens({
+    erc1155Address
 }: {
     erc1155Address: Address;
 }) {
 
-    const tokenData = await fetchTokens(zdk, [erc1155Address]);
+    const tokensData = await fetchTokens(zdk, [erc1155Address]);
 
     //console.log(tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")) /// ///https://ipfs.io/ipfs/
     //const modelPath = tokenData.tokens.nodes[0].token.content?.url?.replace("ipfs://", "https://magic.decentralized-content.com/ipfs/");
     //console.log(tokenData)
+
     return (
-        { tokenData }
+        { tokensData }
     )
 }
+
+type TokensContextProviderProps = {
+    children: React.ReactNode
+}
+
+export const TokensContext = createContext(GetTokens);
+
+export const TokensContextProvider = ({
+    children,
+}: TokensContextProviderProps) => {
+    return <TokensContext.Provider value={GetTokens}> {children} </TokensContext.Provider>
+}
+

@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { Box, Button, LinearProgress } from '@mui/material'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Slider from '@mui/material/Slider';
+
+import {
+    Box,
+    Button,
+    LinearProgress,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
+    TextField,
+    Slider
+} from '@mui/material'
 
 import {
     MainContext
@@ -28,7 +33,7 @@ const argumentsBoxStyle = {
     ml: 0,
     mt: -2,
     border: 0,
-    width: '100%',
+    width: '99%',
 }
 
 const accordionStyle = {
@@ -197,7 +202,7 @@ function CompArguments() {
                             step={3}
                             marks
                             min={1}
-                            max={99}
+                            max={100}
                         />
                     </Box>
 

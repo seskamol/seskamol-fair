@@ -70,7 +70,7 @@ function InfoCard() {
         <Modal
             sx={mModalSx}
             style={mModalStyle}
-            //keepMounted
+            keepMounted
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             open={Boolean(data?.opened)}
@@ -79,7 +79,7 @@ function InfoCard() {
             //slots={{ backdrop: Backdrop }}
             slotProps={{
                 backdrop: {
-                    timeout: 1300,
+                    timeout: 100,
                 },
             }}
         >
@@ -89,7 +89,7 @@ function InfoCard() {
                         sx={{
                             bgcolor: 'rgb(0,0,0,1)',
                             p: 4,
-                            pr: 5,
+
                         }}
                     >
 
