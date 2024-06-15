@@ -25,6 +25,8 @@ import {
     Paper
 } from '@mui/material';
 
+import CompArguments from './CompArguments'
+
 const buttonStyle = {
     display: 'flex',
     justifyContent: 'start',
@@ -78,7 +80,7 @@ function InfoCard() {
         )
     }
 
-    //console.log("data: ", data?.tokensData.tokens.nodes)
+    console.log("data: ", data?.tokensData.tokens.nodes)
 
     return (
         <Box component={'div'}>
@@ -94,9 +96,19 @@ function InfoCard() {
                                 }}
                             >
                                 <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>
-                                    <CardMedia
+                                    {/* <CardMedia
                                         component="img"
                                         image={String(data.token.image?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
+                                        sx={{
+                                            height: { xs: '100%', sm: '100%', md: '67vh' },
+                                            width: { xs: '100%', sm: '100%', md: '67vh' }
+                                        }}
+                                    /> */}
+                                    <CardMedia
+                                        component="video"
+                                        controls
+                                        loop
+                                        image={String(data.token.content?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
                                         sx={{
                                             height: { xs: '100%', sm: '100%', md: '67vh' },
                                             width: { xs: '100%', sm: '100%', md: '67vh' }
@@ -128,13 +140,23 @@ function InfoCard() {
                                         ml: 1.5,
                                     }}
                                 >
-                                    <Button sx={buttonStyle} href="https://zora.co/collect/base:0x3c8fec282501827b560f95d848536f211fbdd7ec" target="_blank" size="small" >
+                                    <Button
+                                        sx={buttonStyle}
+                                        href={
+                                            "https://zora.co/collect/" +
+                                            String(data.token.tokenContract?.network).toLowerCase() +
+                                            ":" +
+                                            String(data.token.collectionAddress) +
+                                            "/" +
+                                            String(data.token.tokenId)
+                                        }
+                                        target="_blank"
+                                        size="small"
+                                    >
                                         [ ZORA ]
                                     </Button>
 
-                                    <Button disabled sx={buttonStyle} href="" target="_blank" size="small" >
-                                        [ MINT ]
-                                    </Button>
+                                    <CompArguments erc1155Address={erc1155Address} tokenId={BigInt(data.token.tokenId)} />
 
                                 </Box>
                             </Card>

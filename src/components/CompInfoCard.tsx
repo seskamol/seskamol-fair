@@ -16,6 +16,8 @@ import {
     Paper
 } from '@mui/material';
 
+import { Address } from 'viem';
+
 const cardPNG = "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeidzxb2sgms6flilbbabfretdv6i3trz3odfavojaeyz4xqql47y4e&amp;w=1920&amp;q=75"
 
 const buttonStyle = {
@@ -32,7 +34,6 @@ const cardPaperStyle = {
     alignItems: 'center',
     border: '2px solid #101',
     background: 'black',
-
 }
 
 const cardPaperSx = {
@@ -59,6 +60,9 @@ const mModalStyle = {
 }
 
 import CompArguments from './CompArguments'
+
+const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
+const tokenId: bigint = BigInt(1);
 
 function InfoCard() {
 
@@ -123,7 +127,7 @@ function InfoCard() {
                                 [ ZORA ]
                             </Button>
 
-                            <CompArguments />
+                            <CompArguments erc1155Address={erc1155Address} tokenId={tokenId} />
 
                             <Button sx={buttonStyle} onClick={handleClose} size="small" >
                                 [ exit ]

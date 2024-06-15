@@ -85,15 +85,20 @@ const uTypStyle = {
     pl: 0.5,
 }
 
-interface WalletStatusProps {
-    mint: () => void;
+interface WalletStatusPropsTypes {
     mintable: boolean;
+    mint: () => void;
     pending: boolean;
 }
 
-function WalletStatusConnectMint(props: WalletStatusProps) {
+interface CompArgumentsPropsTypes {
+    erc1155Address: Address,
+    tokenId: bigint
+}
 
-    const { mint, mintable, pending } = props;
+function WalletStatusConnectMint(props: WalletStatusPropsTypes) {
+
+    const { mintable, mint, pending } = props;
 
     const { chains, switchChain } = useSwitchChain();
 
@@ -104,6 +109,7 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
 
     const baseChainId: number = 8453;
     const baseSepholiaId: number = 84532;
+    //const zoraMainnet: number = 7777777;
 
     //Base Mainnet: 8453
     //Zora Mainnet: 7777777
@@ -145,7 +151,7 @@ function WalletStatusConnectMint(props: WalletStatusProps) {
     }
 }
 
-function CompArguments() {
+function CompArguments(props: CompArgumentsPropsTypes) {
 
     const [comment, setComment] = React.useState<string>("");
 
@@ -156,8 +162,7 @@ function CompArguments() {
             setValue(newValue as number);
     };
 
-    const erc1155Address: Address = "0x743a00292526d31345ee933cc8e91ddf8ff3f047";
-    const tokenId: bigint = BigInt(1);
+    const { erc1155Address, tokenId } = props;
 
     const FuncMint = useContext(MintTransactionContext);
     const { isPending, isConfirmed, mint, error, data } = FuncMint({ erc1155Address, tokenId, quantity: value, comment });
@@ -208,7 +213,11 @@ function CompArguments() {
 
                     <TextField onChange={(e) => { setComment(e.target.value) }} fullWidth name="commentfield" label="comment" id="comment" size="small" />
 
-                    <WalletStatusConnectMint mint={mint} mintable={Boolean(data === undefined)} pending={isPending} />
+                    <WalletStatusConnectMint
+                        mintable={Boolean(data === undefined)}
+                        mint={mint}
+                        pending={isPending}
+                    />
 
                 </AccordionDetails>
 

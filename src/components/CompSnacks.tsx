@@ -30,11 +30,16 @@ export default function CustomizedSnackbars(props: any) {
 
     return (
         <div>
-            <Snackbar open={open} autoHideDuration={8000} onClose={handleClose}>
+            <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} open={open} autoHideDuration={3000} onClose={handleClose}>
                 <Alert
                     variant="outlined"
                     onClose={handleClose}
-                    sx={{ width: '100%', bgcolor: 'black', borderColor: "secondary.light", color: "rgb(255,255,255,0.8)" }}
+                    sx={{
+                        width: '100%',
+                        bgcolor: 'black',
+                        borderColor: "secondary.light",
+                        color: "rgb(255,255,255,0.8)"
+                    }}
                     severity={severity}
                 >
                     {(props.writeConfirmed) ? 'Transaction confirmed.' : ''}
