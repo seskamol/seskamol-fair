@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 
 import { ConntectWalletContext } from './FuncConnect'
+import { useEffect } from 'react';
 
 const cBoxStyle = {
     border: 1,
@@ -64,7 +65,12 @@ function ModalConnect() {
     const data = useContext(MainContext);
 
     const FuncConnect = useContext(ConntectWalletContext)
-    const { connectors, connect } = FuncConnect()
+    const { account, connectors, connect } = FuncConnect()
+
+    useEffect(() => {
+        if (account.isConnected)
+            data?.setOpenModalConnect(false)
+    }, [account])
 
     return (
 

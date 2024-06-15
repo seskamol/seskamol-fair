@@ -80,7 +80,7 @@ function InfoCard() {
         )
     }
 
-    console.log("data: ", data?.tokensData.tokens.nodes)
+    //console.log("data: ", data?.tokensData.tokens.nodes)
 
     return (
         <Box component={'div'}>
@@ -105,13 +105,23 @@ function InfoCard() {
                                         }}
                                     /> */}
                                     <CardMedia
+                                        key={index}
                                         component="video"
-                                        controls
+                                        style={{ backgroundImage: 'none' }}
+                                        //onMouseOver={ }
+                                        //onMouseOut={handleToggle}
+                                        disablePictureInPicture
+                                        disableRemotePlayback={true}
+                                        controlsList="nodownload noplaybackrate"
+                                        aria-disabled
+                                        controls={true}
                                         loop
+                                        poster={String(data.token.image?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
                                         image={String(data.token.content?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
                                         sx={{
                                             height: { xs: '100%', sm: '100%', md: '67vh' },
-                                            width: { xs: '100%', sm: '100%', md: '67vh' }
+                                            width: { xs: '100%', sm: '100%', md: '67vh' },
+
                                         }}
                                     />
                                 </Paper>

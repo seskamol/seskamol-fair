@@ -19,6 +19,14 @@
 
 }
 
+.video-player .plyr .plyr__controls:before {
+  background-image: none;
+}
+
+video::-webkit-media-controls-panel {
+  background-image: none !important;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     background-color: #000000;
