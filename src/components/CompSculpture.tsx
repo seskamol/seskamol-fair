@@ -110,14 +110,14 @@ function BasicModal(props: any) {
                                     height: 50,
                                     mt: 1,
                                     p: 2,
-                                    py: 10,
+                                    py: 4,
                                     pl: 3,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'top',
                                 }}
                             >
-                                <Typography gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">
+                                <Typography gutterBottom variant="subtitle1" component="div" color="rgb(255,255,255,0.5)">
                                     {content.sculpture[props.modalkey].name}
                                 </Typography>
                                 <br /><br />
@@ -172,7 +172,7 @@ function CompSculpture() {
                 width: '100%',
             }}
         >
-            <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3, xl: 3 }} spacing={1}>
+            <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3, xl: 3 }} sx={{ mx: '0.4vw' }}>
                 {
                     content.sculpture.map((data, index) => (
                         <Box
@@ -185,7 +185,7 @@ function CompSculpture() {
                                     bgcolor: 'rgb(0,0,0,1)',
                                     borderColor: "secondary.light",
                                     p: '0.2vw',
-                                    my: '0.8vw'
+                                    my: '0.2vw'
                                 }}
                             >
                                 <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>
@@ -198,7 +198,7 @@ function CompSculpture() {
                                     />
                                 </Paper>
                                 <CardContent>
-                                    <Typography sx={{ py: 2 }} gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">
+                                    <Typography sx={{ pt: '0.4vw' }} gutterBottom variant="subtitle1" component="div" color="rgb(255,255,255,0.5)">
                                         {data.name}
                                     </Typography>
                                     <br />

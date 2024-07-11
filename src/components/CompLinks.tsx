@@ -28,6 +28,7 @@ function CompLinks() {
                 bgcolor: 'transparent',
                 borderColor: "secondary.light",
                 p: '0.2vw',
+                mt: '0.2vw'
             }}
         >
             <Box

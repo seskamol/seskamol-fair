@@ -88,7 +88,7 @@ function InfoCard() {
                                 sx={{
                                     bgcolor: 'rgb(0,0,0,1)',
                                     p: '0.2vw',
-                                    my: '0.1vw',
+                                    my: '0.0vw',
                                     borderColor: "secondary.light",
                                 }}
                             >
