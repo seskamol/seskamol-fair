@@ -7,19 +7,6 @@ const lBoxStyle = {
     width: '100%',
 }
 
-const lBoxSx = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    //width: '100%',
-    border: 1,
-    bgcolor: 'transparent',
-    borderColor: "secondary.light",
-    p: 1,
-    mt: 1,
-}
-
 const buttonStyle = {
     display: 'flex',
     justifyContent: 'start',
@@ -32,21 +19,46 @@ function CompLinks() {
             border={1}
             component={"div"}
             style={lBoxStyle}
-            sx={lBoxSx}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignSelf: 'center',
+                justifyContent: 'center',
+                border: 1,
+                bgcolor: 'transparent',
+                borderColor: "secondary.light",
+                p: '0.2vw',
+            }}
         >
-            <Button sx={buttonStyle} href="https://soundcloud.com/seskamol" target="_blank" size="small" >
-                https://soundcloud.com/seskamol
-            </Button>
+            <Box
+                border={1}
+                component={"div"}
+                style={lBoxStyle}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignSelf: 'center',
+                    justifyContent: 'center',
+                    border: 1,
+                    bgcolor: 'transparent',
+                    borderColor: "secondary.light",
+                    p: '0.4vw',
+                }}
 
-            <Button sx={buttonStyle} href="https://instagram.com/seskamol/" target="_blank" size="small" >
-                https://instagram.com/seskamol
-            </Button>
+            >
+                <Button sx={buttonStyle} href="https://soundcloud.com/seskamol" target="_blank" size="small" >
+                    https://soundcloud.com/seskamol
+                </Button>
 
-            <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
-                https://zora.co/seskamol
-            </Button>
+                <Button sx={buttonStyle} href="https://instagram.com/seskamol/" target="_blank" size="small" >
+                    https://instagram.com/seskamol
+                </Button>
 
-        </Box>
+                <Button sx={buttonStyle} href="https://zora.co/seskamol" target="_blank" size="small" >
+                    https://zora.co/seskamol
+                </Button>
+            </Box>
+        </Box >
     );
 }
 

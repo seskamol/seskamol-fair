@@ -1,10 +1,11 @@
+//import * as React from 'react';
+
 import {
     MainContext,
     useContext
 } from '../context/MainContext';
 
 import {
-    //Backdrop,
     Box,
     Modal,
     Button,
@@ -18,7 +19,11 @@ import {
 
 import { Address } from 'viem';
 
-const cardPNG = "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeidzxb2sgms6flilbbabfretdv6i3trz3odfavojaeyz4xqql47y4e&amp;w=1920&amp;q=75"
+const cardContent = [
+    "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeidzxb2sgms6flilbbabfretdv6i3trz3odfavojaeyz4xqql47y4e&amp;w=1920&amp;q=75",
+    "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeichvxgbapepyhlk3ezw7yjcnwtcl6zvzxzzgx2ppbpt6snxezftqm&w=1920&q=75",
+    "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeifkfbrxocnmzxezynoy33yijs3qgh345ftfpzqrj4c5eycb7a3qve&w=1920&q=75"
+]
 
 const buttonStyle = {
     display: 'flex',
@@ -80,7 +85,6 @@ function InfoCard() {
             open={Boolean(data?.opened)}
             onClose={handleClose}
             closeAfterTransition
-            //slots={{ backdrop: Backdrop }}
             slotProps={{
                 backdrop: {
                     timeout: 100,
@@ -96,10 +100,9 @@ function InfoCard() {
 
                         }}
                     >
-
                         <CardMedia
                             component="img"
-                            image={cardPNG}
+                            image={cardContent[0]}
                             sx={{ height: { xs: '100%', sm: '100%', md: '67vh' } }}
                         />
 

@@ -11,7 +11,7 @@ const mBoxSx = {
     display: 'grid',
     border: 1,
     borderColor: "secondary.light",
-    p: 1
+    p: '0.2vw'
 }
 
 export default function PageMusic() {

@@ -1,7 +1,7 @@
 //import * as React from 'react';
 import Box from '@mui/material/Box';
 
-import CompCollect from './CompCollect';
+import CompSculpture from './CompSculpture'
 
 const mBoxStyle = {
     width: '100%',
@@ -15,13 +15,13 @@ const mBoxSx = {
     p: '0.2vw'
 }
 
-export default function PageCollect() {
+export default function PageSculpture() {
     return (
         <Box component={'div'}
             style={mBoxStyle}
             sx={mBoxSx}
         >
-            <CompCollect />
+            <CompSculpture />
         </Box>
     );
 }

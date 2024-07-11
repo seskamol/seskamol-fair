@@ -9,9 +9,9 @@ export const cBoxStyle = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'top',
-    mb: 1,
+    mb: '0.2vw',
     mt: 0,
-    p: 0.5,
+    p: '0.2vw',
 }
 
 function CompSwitchChain() {

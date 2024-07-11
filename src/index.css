@@ -16,8 +16,21 @@
   user-select: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-
 }
+
+video::-webkit-media-controls-start-playback-button {
+  display: none;
+}
+
+/* video::-webkit-media-controls-play-button {
+  display: none !important;
+} */
+
+video::-webkit-media-controls-panel {
+  /* display: none !important; */
+  opacity: 0.7 !important;
+}
+
 
 .video-player .plyr .plyr__controls:before {
   background-image: none;

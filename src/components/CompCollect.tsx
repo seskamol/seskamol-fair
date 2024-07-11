@@ -4,11 +4,6 @@ import {
     useContext
 } from '../context/MainContext';
 
-import {
-    CircularProgress,
-    Divider
-} from '@mui/material';
-
 import { Address } from 'viem';
 
 import { TokensContext } from './FuncTokens'
@@ -16,6 +11,8 @@ import { useQuery } from '@tanstack/react-query';
 
 import {
     //Backdrop,
+    CircularProgress,
+    Divider,
     Box,
     Button,
     Typography,
@@ -41,17 +38,16 @@ const cardPaperStyle = {
     alignItems: 'center',
     //border: '2px solid #101',
     background: 'black',
-
 }
 
 const cardPaperSx = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column-reverse',
     alignSelf: 'center',
     border: 1,
     borderColor: "secondary.light",
     bgcolor: 'black',
-    p: 1,
+    p: '0.8vw',
     outline: 'none',
 }
 
@@ -91,19 +87,11 @@ function InfoCard() {
                             <Card variant="outlined"
                                 sx={{
                                     bgcolor: 'rgb(0,0,0,1)',
-                                    p: 1,
+                                    p: '0.2vw',
                                     my: 1
                                 }}
                             >
                                 <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>
-                                    {/* <CardMedia
-                                        component="img"
-                                        image={String(data.token.image?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
-                                        sx={{
-                                            height: { xs: '100%', sm: '100%', md: '67vh' },
-                                            width: { xs: '100%', sm: '100%', md: '67vh' }
-                                        }}
-                                    /> */}
                                     <CardMedia
                                         key={index}
                                         component="video"
@@ -115,12 +103,13 @@ function InfoCard() {
                                         controlsList="nodownload noplaybackrate"
                                         aria-disabled
                                         controls={true}
+
                                         loop
                                         poster={String(data.token.image?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
                                         image={String(data.token.content?.url).replace("ipfs://", "https://magic.decentralized-content.com/ipfs/")}
                                         sx={{
-                                            height: { xs: '100%', sm: '100%', md: '67vh' },
-                                            width: { xs: '100%', sm: '100%', md: '67vh' },
+                                            height: { xs: '100%', sm: '100%', xl: '67vh' },
+                                            width: { xs: '100%', sm: '100%', xl: '67vh' },
 
                                         }}
                                     />
@@ -138,6 +127,8 @@ function InfoCard() {
                                         Chain: {data.token.tokenContract?.network}
                                         <br />
                                         File Type: {data.token.content?.mimeType}
+                                        {/* <br />
+                                        {data.token.mintInfo?.price?.nativePrice.currency.name} */}
                                     </Typography>
                                 </CardContent>
 

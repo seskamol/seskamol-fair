@@ -1,16 +1,16 @@
 import { useState } from 'react'
-//
+
 import { MainContext } from './context/MainContext'
-//
+
 import {
   ThemeProvider,
   CssBaseline,
   Box,
   Button
 } from '@mui/material';
-//
+
 import { ColorModeContext, ColorMode } from './theme/ColorModeContext'
-//
+
 import CompConnect from './components/CompConnect'
 import CompModalConnect from './components/CompModalConnect'
 import CompMenu from './components/CompMenu'
@@ -21,7 +21,7 @@ import { MintTransactionContextProvider } from './components/FuncMint';
 import { TokensContextProvider } from './components/FuncTokens';
 
 const aBoxStyle = {
-  padding: '7px',
+  padding: '0.2vw',
   width: "100vw",
   height: "100%"
 }
@@ -42,7 +42,7 @@ const cBoxSx = {
 
   flexGrow: 1,
   justifyContent: 'stretch',
-  p: '7px',
+  p: '0.2vw',
 }
 
 function App() {

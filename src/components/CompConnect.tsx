@@ -16,9 +16,9 @@ const cBoxStyle = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'top',
-    mb: 1,
+    mb: '0.2vw',
     mt: 0,
-    p: 0.5,
+    p: '0.2vw',
 }
 
 const mBoxStyle = {
@@ -29,8 +29,8 @@ const mBoxStyle = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'top',
-    mb: 1, mt: 1, pt: 1,
-    pl: 1, pr: 1,
+    mb: '0.2vw', mt: '0.2vw', pt: '0.2vw',
+    pl: '0.2vw', pr: '0.2vw',
 }
 
 const uTypStyle = {
@@ -41,8 +41,8 @@ const uTypStyle = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'top',
-    mb: 1,
-    p: 1, pl: 1.3,
+    mb: '0.2vw',
+    p: '0.4vw', pl: '0.4vw',
 }
 
 function CompConnect() {
