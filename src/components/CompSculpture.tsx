@@ -183,6 +183,7 @@ function CompSculpture() {
                                 variant="outlined"
                                 sx={{
                                     bgcolor: 'rgb(0,0,0,1)',
+                                    borderColor: "secondary.light",
                                     p: '0.2vw',
                                     my: '0.8vw'
                                 }}

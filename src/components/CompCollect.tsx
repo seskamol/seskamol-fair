@@ -47,7 +47,7 @@ const cardPaperSx = {
     border: 1,
     borderColor: "secondary.light",
     bgcolor: 'black',
-    p: '0.8vw',
+    p: '0.2vw',
     outline: 'none',
 }
 
@@ -88,7 +88,8 @@ function InfoCard() {
                                 sx={{
                                     bgcolor: 'rgb(0,0,0,1)',
                                     p: '0.2vw',
-                                    my: 1
+                                    my: '0.1vw',
+                                    borderColor: "secondary.light",
                                 }}
                             >
                                 <Paper component={"div"} sx={cardPaperSx} style={cardPaperStyle}>

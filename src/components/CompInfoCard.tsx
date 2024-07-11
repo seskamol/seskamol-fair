@@ -97,7 +97,7 @@ function InfoCard() {
                         sx={{
                             bgcolor: 'rgb(0,0,0,1)',
                             p: 4,
-
+                            borderColor: "secondary.light",
                         }}
                     >
                         <CardMedia
