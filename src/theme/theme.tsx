@@ -60,7 +60,7 @@ export const tokens = (mode: PaletteMode) => ({
 
 export const themeSettings = (mode: PaletteMode) => {
     //const colors = tokens(mode);
-    const letterSpacingM = "0.3033vw"; // letterSpacing
+    const letterSpacingM = "0.7033vw"; // letterSpacing
     const fontFamilyM = "Arial"; //fontFamily
 
     return {

@@ -116,7 +116,7 @@ function InfoCard() {
                                     />
                                 </Paper>
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div" color="rgb(255,255,255,0.5)">
+                                    <Typography gutterBottom variant="subtitle1" component="div" color="rgb(255,255,255,0.5)">
                                         {data.token.name}
                                     </Typography>
                                     <Typography variant="subtitle2" color="rgb(255,255,255,0.6)">
