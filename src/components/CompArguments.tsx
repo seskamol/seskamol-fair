@@ -31,7 +31,7 @@ const argumentsBoxStyle = {
     justifyContent: 'start',
     alignItems: 'flex-start',
     ml: 0,
-    mt: -2,
+    mt: 0,
     border: 0,
     width: '99%',
 }

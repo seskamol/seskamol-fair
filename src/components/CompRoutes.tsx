@@ -2,7 +2,8 @@
 import {
     Box,
     Tabs,
-    Tab
+    Tab,
+    //Button
 } from '@mui/material';
 
 import {
@@ -41,10 +42,10 @@ function Menu() {
     const currentTab = routeMatch?.pattern?.path;
     return (
         <Box sx={{ mb: '0.2vw', border: 1, borderColor: 'secondary.light' }} component={'div'} >
-            <Tabs value={currentTab}>
-                <Tab label="home" value="/" to="/" component={Link} />
-                <Tab label="collect" value="/collect" to="/collect" component={Link} />
-                <Tab label="sculpture" value="/sculpture" to="/sculpture" component={Link} />
+            <Tabs value={currentTab} sx={{ minHeight: "11px", height: "10px" }} style={{ height: "1px", maxHeight: "10px" }}>
+                <Tab sx={{ border: 0, my: -0, minHeight: "0px", height: "12.5px", p: 0 }} label="home" value="/" to="/" component={Link} /* style={{ height: "10px", minWidth: "200px" }} */ />
+                <Tab sx={{ border: 0, my: -0, minHeight: "0px", height: "12.5px", p: 0 }} label="collect" value="/collect" to="/collect" component={Link} />
+                <Tab sx={{ border: 0, my: -0, minHeight: "0px", height: "12.5px", p: 0 }} label="sculpture" value="/sculpture" to="/sculpture" component={Link} />
                 {/* <Tab label="music" value="/music" to="/music" component={Link} /> */}
             </Tabs>
         </Box>

@@ -21,7 +21,7 @@ function CompSwitchChain() {
     return (
         <Box sx={cBoxStyle} component={'div'}>
             {chains.map((chain) => (
-                <Button sx={{ pl: 1.6, mr: 0.5 }} variant="outlined" size="small" key={chain.id} onClick={() => switchChain({ chainId: chain.id })}>
+                <Button sx={{ pl: 1.6, mr: 0.5, pt: 0.08, pb: 0.03 }} variant="outlined" size="small" key={chain.id} onClick={() => switchChain({ chainId: chain.id })}>
                     {chain.name}
                 </Button>
             ))}

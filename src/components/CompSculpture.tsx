@@ -172,7 +172,7 @@ function CompSculpture() {
                 width: '100%',
             }}
         >
-            <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3, xl: 3 }} sx={{ mx: '0.4vw' }}>
+            <Masonry columns={{ xs: 1, sm: 1, md: 2, lg: 3, xl: 4 }} sx={{ mx: '0.4vw' }}>
                 {
                     content.sculpture.map((data, index) => (
                         <Box

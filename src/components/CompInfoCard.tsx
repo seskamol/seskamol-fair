@@ -25,11 +25,14 @@ const cardContent = [
     "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fmagic.decentralized-content.com%2Fipfs%2Fbafybeifkfbrxocnmzxezynoy33yijs3qgh345ftfpzqrj4c5eycb7a3qve&w=1920&q=75"
 ]
 
-const buttonStyle = {
+const buttonSx = {
     display: 'flex',
     justifyContent: 'start',
     width: '100%',
-    mb: 2
+    mb: 0,
+    mt: 0,
+    //border: 1,
+    //py: 0
 }
 
 const cardPaperStyle = {
@@ -96,7 +99,7 @@ function InfoCard() {
                     <Card variant="outlined"
                         sx={{
                             bgcolor: 'rgb(0,0,0,1)',
-                            p: 4,
+                            p: "0.4 vw",
                             borderColor: "secondary.light",
                         }}
                     >
@@ -124,15 +127,18 @@ function InfoCard() {
                                 justifyContent: 'start',
                                 alignItems: 'flex',
                                 ml: 1.5,
+                                pb: 4,
+                                mb: 1
+
                             }}
                         >
-                            <Button sx={buttonStyle} href="https://zora.co/collect/base:0x743a00292526d31345ee933cc8e91ddf8ff3f047/1" target="_blank" size="small" >
+                            <Button sx={buttonSx} href="https://zora.co/collect/base:0x743a00292526d31345ee933cc8e91ddf8ff3f047/1" target="_blank" size="small" >
                                 [ ZORA ]
                             </Button>
 
                             <CompArguments erc1155Address={erc1155Address} tokenId={tokenId} />
 
-                            <Button sx={buttonStyle} onClick={handleClose} size="small" >
+                            <Button sx={buttonSx} onClick={handleClose} size="small" >
                                 [ exit ]
                             </Button>
                         </Box>

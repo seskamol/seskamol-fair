@@ -24,11 +24,12 @@ import {
 
 import CompArguments from './CompArguments'
 
-const buttonStyle = {
+const buttonSx = {
     display: 'flex',
     justifyContent: 'start',
     width: '100%',
-    mb: 2
+    mb: 0,
+    py: 0
 }
 
 const cardPaperStyle = {
@@ -143,7 +144,7 @@ function InfoCard() {
                                     }}
                                 >
                                     <Button
-                                        sx={buttonStyle}
+                                        sx={buttonSx}
                                         href={
                                             "https://zora.co/collect/" +
                                             String(data.token.tokenContract?.network).toLowerCase() +

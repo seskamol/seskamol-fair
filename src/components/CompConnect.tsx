@@ -82,7 +82,7 @@ function CompConnect() {
                             onClick={() => connect({ connector })}
                             type="button"
                             variant="outlined"
-                            sx={{ pl: 1.6, mr: 0.5 }}
+                            sx={{ pl: 1.6, mr: 0.5, pt: 0.08, pb: 0.03 }}
                         >
                             {connector.name}
                         </Button>
