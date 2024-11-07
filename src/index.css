@@ -31,7 +31,6 @@ video::-webkit-media-controls-panel {
   opacity: 0.7 !important;
 }
 
-
 .video-player .plyr .plyr__controls:before {
   background-image: none;
 }

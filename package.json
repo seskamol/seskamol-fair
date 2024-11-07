@@ -13,20 +13,24 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.16.0",
     "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.15.19",
+    "@mui/styles": "^5.16.1",
     "@react-three/drei": "^9.106.0",
     "@react-three/fiber": "^8.16.8",
     "@tanstack/react-query": "5.0.5",
     "@types/three": "^0.165.0",
     "@zoralabs/protocol-sdk": "^0.5.17",
     "@zoralabs/zdk": "^2.4.0",
+    "material-ui-player": "^1.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "three": "^0.165.0",
     "viem": "latest",
-    "wagmi": "latest"
+    "wagmi": "latest",
+    "wavesurfer-react": "^3.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.1.2",
