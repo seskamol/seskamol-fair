@@ -1,7 +1,7 @@
 //import * as React from 'react';
 //import { Skeleton } from '@mui/material';
 import Box from '@mui/material/Box';
-import CompAudio from './CompAudio';
+//import CompAudio from './CompAudio';
 
 const mBoxStyle = {
     width: '100%',
@@ -21,7 +21,7 @@ export default function PageVideo() {
             style={mBoxStyle}
             sx={mBoxSx}
         >
-            <CompAudio />
+            {/* <CompAudio /> */}
             {/*  <Skeleton sx={{ bgcolor: "secondary.light" }} /> */}
 
         </Box>
