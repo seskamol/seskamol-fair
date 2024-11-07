@@ -84,8 +84,8 @@ function CompConnect() {
                             variant="outlined"
                             //fullWidth="true"
                             sx={{ minWidth: '100px', pl: 1.6, mr: "0.4vw", pt: 0.08, pb: 0.03 }}
-                            //align={'center'}
-                            noWrap={true}
+                        //align={'center'}
+                        //noWrap={true}
                         >
                             {connector.name}
                         </Button>
