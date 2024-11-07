@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import CompInfoCard from './CompInfoCard'
-import CompThree from './CompThree'
+//import CompInfoCard from './CompInfoCard'
+//import CompThree from './CompThree'
 
 const mBoxSx = {
     display: 'grid',
@@ -14,8 +14,8 @@ export default function PageHome() {
         <Box component={'div'}
             sx={mBoxSx}
         >
-            <CompThree />
-            <CompInfoCard />
+            {/* <CompThree /> */}
+            {/* <CompInfoCard /> */}
         </Box>
     );
 }
